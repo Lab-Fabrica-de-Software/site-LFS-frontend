@@ -26,6 +26,25 @@ pnpm dev
 bun dev
 ```
 
+# Aviso Importante
+
+Por favor, **não façam commits diretamente na branch `master`**.
+
+### Como contribuir corretamente:
+
+1. Criem uma **branch nova** para sua feature ou correção, com nome descritivo.  
+   Exemplo: `feature/nova-funcionalidade/seu-nome` ou `fix/bug-login/seu-nome`.
+
+2. Realizem seus commits e push nessa branch criada.
+
+3. Enviem um **Pull Request** (PR) da sua branch para a `master`.
+
+---
+
+Assim mantemos o repositório organizado, evitamos conflitos e garantimos a qualidade do código na branch principal.
+  
+Obrigado pela colaboração! 🚀
+
 ---
 
 ## 📁 Estrutura de Pastas - Next.js (App Router)
