@@ -26,18 +26,12 @@ pnpm dev
 bun dev
 ```
 
-# Aviso Importante
+# Aviso Importante!
 
-Por favor, **não façam commits diretamente na branch `master`**.
+Siga as **intruções** de fluxo de **trabalho** indicadas na **Wiki** 
 
-### Como contribuir corretamente:
-
-1. Criem uma **branch nova** para sua feature ou correção, com nome descritivo.  
-   Exemplo: `feature/nova-funcionalidade/seu-nome` ou `fix/bug-login/seu-nome`.
-
-2. Realizem seus commits e push nessa branch criada.
-
-3. Enviem um **Pull Request** (PR) da sua branch para a `master`.
+- [Fluxo Git Issues](https://github.com/Lab-Fabrica-de-Software/.github/wiki/Fluxo-Git-Issues)
+- [Padrões de Commit](https://github.com/Lab-Fabrica-de-Software/.github/wiki/Padrões-de-Commit)
 
 ---
 
