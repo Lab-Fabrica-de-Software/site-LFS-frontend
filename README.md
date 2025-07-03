@@ -31,55 +31,40 @@ bun dev
 ## 📁 Estrutura de Pastas - Next.js (App Router)
 
 ### /public
-
 Arquivos públicos acessíveis diretamente via URL.
-
 - Ex: imagens, favicon, robots.txt, etc.
 - URL direta: `/favicon.ico`
 
 ### /src
-
 Contém todo o código-fonte da aplicação.
 
 ### 📁 app/
-
 Onde ficam as rotas, páginas e o layout principal (App Router).
-
 - `layout.tsx`: layout base (Navbar, Footer, Toasts, etc)
 - `page.tsx`: landing page principal
 - Pode ter subpastas para outras rotas, ex: `/sobre/page.tsx`
 
 ### 📁 components/
-
 Componentes reutilizáveis, atômicos ou estruturais.
-
 - Ex: `Button`, `Navbar`, `Input`, `Footer`
 - Organizado por pastas (`common/`, `ui/`, etc)
 
 ### 📁 hooks/
-
 Hooks personalizados em React.
-
 - Ex: `useScroll`, `useForm`, `useMediaQuery`
 - Reutilizáveis entre páginas e componentes
 
 ### 📁 lib/
-
 Bibliotecas, serviços e funções auxiliares.
-
 - Ex: funções de formatação, chamada de API, autenticação, analytics
 
 ### 📁 sections/
-
 Seções da landing page (Hero, Features, FAQ, etc).
-
 - Blocos visuais e semânticos
 - Cada um corresponde a uma `<section>` do HTML
 
 ### 📁 types/
-
 Tipos e interfaces TypeScript.
-
 - Ex: `User`, `Service`, `Testimonial`, etc
 - Facilita tipagem em componentes, hooks e lib
 
