@@ -1,8 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Landing Page Laboratório Fábrica de Software
 
-## Getting Started
+Vamos começar clonando o projeto
 
-First, run the development server:
+```bash
+git clone https://github.com/Lab-Fabrica-de-Software/LandingPage-LFS.git
+```
+
+Após isso, instale as dependências do projeto:
+
+```bash
+npm install
+# ou
+pnpm install
+```
+
+Agora, rode o projeto no seu terminal utilizando:
 
 ```bash
 npm run dev
@@ -14,23 +26,88 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Estrutura de Pastas - Next.js (App Router)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### /public
+Arquivos públicos acessíveis diretamente via URL.
+- Ex: imagens, favicon, robots.txt, etc.
+- URL direta: `/favicon.ico`
 
-## Learn More
+### /src
+Contém todo o código-fonte da aplicação.
 
-To learn more about Next.js, take a look at the following resources:
+### 📁 app/
+Onde ficam as rotas, páginas e o layout principal (App Router).
+- `layout.tsx`: layout base (Navbar, Footer, Toasts, etc)
+- `page.tsx`: landing page principal
+- Pode ter subpastas para outras rotas, ex: `/sobre/page.tsx`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 📁 components/
+Componentes reutilizáveis, atômicos ou estruturais.
+- Ex: `Button`, `Navbar`, `Input`, `Footer`
+- Organizado por pastas (`common/`, `ui/`, etc)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 📁 hooks/
+Hooks personalizados em React.
+- Ex: `useScroll`, `useForm`, `useMediaQuery`
+- Reutilizáveis entre páginas e componentes
 
-## Deploy on Vercel
+### 📁 lib/
+Bibliotecas, serviços e funções auxiliares.
+- Ex: funções de formatação, chamada de API, autenticação, analytics
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 📁 sections/
+Seções da landing page (Hero, Features, FAQ, etc).
+- Blocos visuais e semânticos
+- Cada um corresponde a uma `<section>` do HTML
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 📁 types/
+Tipos e interfaces TypeScript.
+- Ex: `User`, `Service`, `Testimonial`, etc
+- Facilita tipagem em componentes, hooks e lib
+
+---
+
+## 1. O que é Next.js?
+
+- Framework React para construir sites e apps web.
+- Suporta SSR (Server Side Rendering), SSG (Static Site Generation), API Routes e muito mais.
+- Organiza rotas baseado em arquivos/folders.
+
+---
+
+## 2. Como usar o use client do Next.js?
+- Usando "use client", você habilita o componente para rodar no navegador, liberando o poder dos hooks do React, como useState, que gerenciam o estado local de forma intuitiva e eficiente.
+
+```tsx
+"use client";
+
+import React, { useState } from "react";
+
+export default function Contador() {
+  const [count, setCount] = useState(0);
+
+  return (
+      <button
+        onClick={() => setCount(count + 1)}
+        className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition"
+      >
+        Incrementar
+      </button>
+  );
+}
+```
+- Note que o nome do componente é Contador, ou seja, ele será importado em outro arquivo (normalmente, para estruturação do layout da página).
+
+```tsx
+import Contador from '@/components/contador-button'
+
+export default function Page() {
+    return (
+        <Contador/> //componente importado
+    )
+}
+
+- Use "use client" só onde precisa mesmo de interatividade, estado ou efeitos React. Em páginas que só importam componentes já client, não é necessário repetir. Assim, seu app fica mais leve e rápido.
