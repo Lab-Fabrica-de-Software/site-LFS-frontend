@@ -134,6 +134,54 @@ export default function Page() {
 
 ## Componentização no React
 
+### O que é componentização?
+- **Dividir a interface em pequenas partes reutilizáveis** chamadas **componentes**.
+- Cada componente é responsável por uma parte específica da UI.
+- Facilita manutenção, reaproveitamento e organização do código.
+
+### Benefícios
+- Reutilização: evita duplicar código.
+- Manutenção: mudanças em um lugar afetam todos que usam o componente.
+- Organização: código mais limpo e fácil de entender.
+- Testabilidade: componentes pequenos são mais fáceis de testar.
+
+### Como criar um componente simples
+
+```tsx
+// components/Button.tsx
+import React from "react";
+
+interface ButtonProps {
+  onClick: () => void;
+  children: React.ReactNode;
+}
+
+export function Button({ onClick, children }: ButtonProps) {
+  return (
+    <button onClick={onClick} className="bg-blue-600 text-white p-2 rounded">
+      {children}
+    </button>
+  );
+}
+
+// na prática fica assim:
+
+// app/page.tsx
+import React from "react";
+import { Button } from "../components/Button";
+
+export default function Home() {
+  return (
+    <div>
+      <h1>Minha página</h1>
+      <Button onClick={() => alert("Clicou!")}>Clique aqui</Button>
+    </div>
+  );
+}
+```
+
+
+
 ---
 
 ## Usando o `tailwind-merge` em componentes
