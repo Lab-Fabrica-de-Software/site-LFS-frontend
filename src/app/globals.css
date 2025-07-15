@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+    --color-lfs-primary: #56E873
+}
