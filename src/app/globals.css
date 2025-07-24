@@ -1,5 +1,108 @@
 @import "tailwindcss";
 
-@theme {
-    --color-lfs-primary: #56E873
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-*: initial;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-navbar: var(--navbar);
+  --color-navbar-foreground: var(--navbar-foreground);
+  --color-navbar-primary: var(--navbar-primary);
+  --color-navbar-primary-foreground: var(--navbar-primary-foreground);
+  --color-navbar-accent: var(--navbar-accent);
+  --color-navbar-accent-foreground: var(--navbar-accent-foreground);
+  --color-navbar-border: var(--navbar-border);
+  --color-navbar-ring: var(--navbar-ring);
+}
+
+/* :root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.141 0.005 285.823);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.141 0.005 285.823);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.141 0.005 285.823);
+  --primary: #56E873;
+  --primary-foreground: oklch(0.97 0.014 254.604);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: hsla(0, 0%, 93%, 1);
+  --accent-secondary: hsla(0, 0%, 100%, 1);
+  --accent-foreground: oklch(0.21 0.006 285.885);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.623 0.214 259.815);
+  --navbar: oklch(0.985 0 0);
+  --navbar-foreground: oklch(0.141 0.005 285.823);
+  --navbar-primary: oklch(0.623 0.214 259.815);
+  --navbar-primary-foreground: oklch(0.97 0.014 254.604);
+  --navbar-accent: oklch(0.967 0.001 286.375);
+  --navbar-accent-foreground: oklch(0.21 0.006 285.885);
+  --navbar-border: oklch(0.92 0.004 286.32);
+  --navbar-ring: oklch(0.623 0.214 259.815);
+} */
+
+:root {
+  --background: #090909;
+  --foreground: oklch(0.985 0 0);
+  --card: #151515;
+  --card-foreground: oklch(0.985 0 0);
+  --popover: hsla(0, 0%, 6%, 1);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: #56e873;
+  --primary-foreground: #fff;
+  --secondary: hsla(0, 0%, 6%, 1);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: hsla(0, 0%, 6%, 1);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: #56e873;
+  --accent-secondary: #191919;
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #6a6a6a;
+  --input: #151515;
+  --ring: #56e873;
+  --navbar: #151515;
+  --navbar-foreground: oklch(0.985 0 0);
+  --navbar-primary: #56e873;
+  --navbar-primary-foreground: #56e873;
+  --navbar-accent: #56e873;
+  --navbar-accent-foreground: oklch(0.985 0 0);
+  --navbar-border: #6a6a6a;
+  --navbar-ring: #56e873;
+}
+
+.bg-card-background {
+  @apply border bg-card rounded-md;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }

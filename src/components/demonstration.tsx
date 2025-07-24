@@ -10,8 +10,8 @@ interface DemonstrationProps extends ComponentProps<"button"> {
 }
 
 const variantClasses = {
-  primary: 'bg-lfs-primary hover:bg-lfs-primary/70',
-  secondary: 'border-2 border-lfs-primary text-lfs-primary hover:bg-lfs-primary hover:text-black'
+  primary: 'bg-primary hover:bg-primary/70',
+  secondary: 'border-2 border-primary text-primary hover:bg-primary hover:text-black'
 }
 
 export default function Demonstration({ children, variant = "primary", className, ...props }: DemonstrationProps) {
