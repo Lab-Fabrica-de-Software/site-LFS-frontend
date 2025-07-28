@@ -7,11 +7,16 @@ export function InputRoot(props: InputRoot) {
   return (
     <div
       className="group transition-all bg-background h-12 border rounded-md px-4 flex items-center gap-3"
-      {...props}>
-        <span> Label</span>
-      </div>
-    
+      {...props}
+    >
+      {props.children}
+    </div>
   );
+}
+
+interface InputLabel extends ComponentProps<"span"> {}
+export function InputLabel(props: InputLabel) {
+  return <span className="text-md" {...props} />;
 }
 
 interface InputIcon extends ComponentProps<"span"> {}
@@ -36,14 +41,30 @@ export function InputField(props: InputField) {
   );
 }
 
+interface TextAreaField extends ComponentProps<"textarea"> {}
+
+export function TextAreaField(props: TextAreaField) {
+  return <textarea className="bg-background h-auto border p-2 rounded-md placeholder-gray-500 transition-all focus:outline-0  text-gray-300 resize-none" {...props}></textarea>;
+}
+
+interface FormGroup extends ComponentProps<"div"> {}
+
+export function FormGroup(props: FormGroup) {
+  return <div className="grid gap-2" {...props} />;
+}
+
 export default function InputExemple() {
   return (
-    <InputRoot>
-      <InputIcon>
-        {" "}
-        <User />
-      </InputIcon>
-      <InputField placeholder="Seu nome complento" />
-    </InputRoot>
+    <FormGroup>    
+      <InputLabel>aaa</InputLabel> 
+      <InputRoot>       
+        <InputIcon>
+            <User />
+        </InputIcon>
+        <InputField placeholder="Seu nome complento" />
+      </InputRoot>
+     <TextAreaField rows={3} />
+
+    </FormGroup>
   );
 }
