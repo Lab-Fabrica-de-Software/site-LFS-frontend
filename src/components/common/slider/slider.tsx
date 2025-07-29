@@ -1,26 +1,50 @@
-import { twMerge } from "tailwind-merge";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { ReactNode } from "react";
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-interface SliderProps{
-  children: ReactNode[];
+import { ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
+
+interface SliderProps {
+  children?: ReactNode[];
   className?: string;
+  autoPlay?: boolean;
+  showNavigation?: boolean;
+  showPagination?: boolean;
+  slidesPerView?: number;
+  breakpoints?: Record<string, any>;
 }
 
-export default function Tag({className}:SliderProps){
-const style = twMerge("text-black/70 text-xl font-bold",className )
+export default function Slider({
+  children = [],
+  className,
+  autoPlay = true,
+  showNavigation = false,
+  showPagination = false,
+  slidesPerView = 1,
+  breakpoints = {},
+}: SliderProps) {
+  const style = twMerge("w-full", className);
 
-return(
-    <Swiper
-      spaceBetween={50}
-      slidesPerView={3}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-    </Swiper>
-);
+  return (
+    <div className={style}>
+      <Swiper
+        modules={[Autoplay, Navigation, Pagination]}
+        autoplay={autoPlay ? { delay: 3000, disableOnInteraction: false } : false}
+        navigation={showNavigation}
+        pagination={showPagination ? { clickable: true } : false}
+        loop={true}
+        slidesPerView={slidesPerView}
+        spaceBetween={20}
+        breakpoints={breakpoints}
+        className="!pb-8"
+      >
+        {children && children.map((child, index) => (
+          <SwiperSlide key={index}>{child}</SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
 }

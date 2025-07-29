@@ -1,26 +1,24 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import Slider from './slider';
+import PartnerCard  from './partnercard';
 
 const meta = {
-  title: 'COMMON/Slider',
-  component: Slider,
+  title: 'COMMON/PartnerCard',
+  component: PartnerCard,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'], 
-   } satisfies Meta<typeof Slider>;
+   } satisfies Meta<typeof PartnerCard>;
 
 export default meta;
-type Story = StoryObj<typeof Slider>;
+type Story = StoryObj<typeof PartnerCard>;
 
 export const Primary: Story = {
   args: {
-    className:'',
   },
 };
 
 export const CustomClass: Story = {
   args: {
-    className: 'text-sm',
   },
 };
