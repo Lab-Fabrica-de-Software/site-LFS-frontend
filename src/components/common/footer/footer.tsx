@@ -10,7 +10,7 @@ interface FooterProps {
 
 export default function Footer({ className }: FooterProps) {
   const containerStyle = twMerge(
-    "max-w-7xl mx-auto bg-background text-foreground px-6 md:px-12 py-10 mt-10",
+    "max-w-7xl mx-auto bg-card border-t-1 text-foreground px-6 md:px-12 py-10 mt-10",
     className
   );
 
