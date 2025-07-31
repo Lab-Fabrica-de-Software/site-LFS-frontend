@@ -1,25 +1,46 @@
 
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import InputExemple from './inputGroup';
+import { InputField, InputGroup, SelectField, TextAreaField } from './inputGroup';
+import { User } from 'lucide-react';
 
 const meta = {
-  title: 'UI/Input',
-  component: InputExemple,
+  title: 'UI/InputGroup',
+  component: InputGroup,
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'], 
-   } satisfies Meta<typeof InputExemple>;
+  tags: ['autodocs'],
+} satisfies Meta<typeof InputGroup>;
 
 export default meta;
-type Story = StoryObj<typeof InputExemple>;
+type Story = StoryObj<typeof InputGroup>;
 
-export const Primary: Story = {
+export const Input: Story = {
   args: {
-   labelText:"Input",
-   type:"text",
-   id:'1',
+    inputLabel: 'Label',
+    inputIcon: <User className="w-4 h-4" />,
+    children: <InputField placeholder="Type here..." type='text '/>,
   },
 };
 
+export const TextArea: Story = {
+  args: {
+    inputLabel: 'Label',
+    children: <TextAreaField placeholder="Type here..." />,
+  },
+};
+
+
+export const Select: Story = {
+  args: {
+    inputLabel: 'Label',
+    children: (
+      <SelectField defaultValue="option1">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </SelectField>
+    ),
+  },
+};
