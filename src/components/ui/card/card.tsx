@@ -1,10 +1,7 @@
 import type { ComponentProps } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-interface CardRootProps extends ComponentProps<"div"> {
-
-}
-export function Card({ className, ...props }: CardRootProps) {
+export function Card({ className, ...props }: ComponentProps<"div">) {
     return (
         <div
             data-slot="card"
@@ -17,10 +14,7 @@ export function Card({ className, ...props }: CardRootProps) {
     );
 }
 
-interface CardHeaderProps extends ComponentProps<"div"> {
-
-}
-export function CardHeader({ className, ...props }: CardHeaderProps) {
+export function CardHeader({ className, ...props }: ComponentProps<"div">) {
     return (
         <div
             data-slot="card-header"
@@ -32,10 +26,8 @@ export function CardHeader({ className, ...props }: CardHeaderProps) {
     );
 
 }
-interface CardTitleProps extends ComponentProps<"div"> {
 
-}
-export function CardTitle({ className, ...props }: CardTitleProps) {
+export function CardTitle({ className, ...props }: ComponentProps<"div">) {
     return (
         <div
             data-slot="card-title"
@@ -47,10 +39,8 @@ export function CardTitle({ className, ...props }: CardTitleProps) {
         />
     );
 }
-interface CardSubtitleProps extends ComponentProps<"div"> {
 
-}
-export function CardSubtitle({ className, ...props }: CardSubtitleProps) {
+export function CardSubtitle({ className, ...props }: ComponentProps<"div">) {
     return (
         <div
             data-slot="card-subtitle"
@@ -62,10 +52,7 @@ export function CardSubtitle({ className, ...props }: CardSubtitleProps) {
     );
 }
 
-interface CardDescriptionProps extends ComponentProps<"div"> {
-
-}
-export function CardDescription({ className, ...props }: CardDescriptionProps) {
+export function CardDescription({ className, ...props }: ComponentProps<"div">) {
     return (
         <div
             data-slot="card-description"
@@ -77,9 +64,8 @@ export function CardDescription({ className, ...props }: CardDescriptionProps) {
     );
 }
 
-interface CardContentProps extends ComponentProps<"div"> { }
 
-export function CardContent({ className, ...props }: CardContentProps) {
+export function CardContent({ className, ...props }: ComponentProps<"div">) {
     return (
         <div data-slot="card-content"  {...props} className={twMerge("mt-2", className)} />
     )
