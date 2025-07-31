@@ -27,9 +27,9 @@ export function CardHeader({ className, ...props }: ComponentProps<"div">) {
 
 }
 
-export function CardTitle({ className, ...props }: ComponentProps<"div">) {
+export function CardTitle({ className, ...props }: ComponentProps<"h1">) {
     return (
-        <div
+        <h1
             data-slot="card-title"
             {...props}
             className={twMerge("text-xl font-bold",
@@ -40,9 +40,9 @@ export function CardTitle({ className, ...props }: ComponentProps<"div">) {
     );
 }
 
-export function CardSubtitle({ className, ...props }: ComponentProps<"div">) {
+export function CardSubtitle({ className, ...props }: ComponentProps<"h2">) {
     return (
-        <div
+        <h2
             data-slot="card-subtitle"
             {...props}
             className={twMerge("text-md text-primary font-semibold",
@@ -52,9 +52,9 @@ export function CardSubtitle({ className, ...props }: ComponentProps<"div">) {
     );
 }
 
-export function CardDescription({ className, ...props }: ComponentProps<"div">) {
+export function CardDescription({ className, ...props }: ComponentProps<"p">) {
     return (
-        <div
+        <p
             data-slot="card-description"
             {...props}
             className={twMerge("text-sm font-medium",
