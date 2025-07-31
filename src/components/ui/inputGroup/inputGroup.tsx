@@ -43,7 +43,7 @@ export function InputField(props: ComponentProps<"input">) {
 
 export function TextAreaField(props: ComponentProps<"textarea">) {
   return (
-    <textarea className={FieldStyles} {...props} />
+    <textarea className={`${FieldStyles} resize-none`} {...props} />
   )
 }
 
