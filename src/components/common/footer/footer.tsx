@@ -10,13 +10,13 @@ interface FooterProps {
 
 export default function Footer({ className }: FooterProps) {
   const containerStyle = twMerge(
-    "bg-background text-foreground px-6 md:px-12 py-10 mt-10",
+    "max-w-7xl mx-auto bg-background text-foreground px-6 md:px-12 py-10 mt-10",
     className
   );
 
   return (
     <footer className={containerStyle}>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <div>
           <Image
