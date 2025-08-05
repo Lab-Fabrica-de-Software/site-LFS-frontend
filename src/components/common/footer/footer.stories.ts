@@ -1,21 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import Slider from './slider';
+import Footer from './footer';
 
-const meta = {
-  title: 'COMMON/Slider',
-  component: Slider,
+const meta: Meta<typeof Footer> = {
+  title: 'COMMON/Footer',
+  component: Footer,
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'], 
-   } satisfies Meta<typeof Slider>;
+  tags: ['autodocs'],
+};
 
 export default meta;
-type Story = StoryObj<typeof Slider>;
+type Story = StoryObj<typeof Footer>;
 
 export const Primary: Story = {
   args: {
-    className:'',
+    className: '',
   },
 };
 
