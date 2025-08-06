@@ -11,7 +11,7 @@ interface NavbarProps extends ComponentProps<"nav"> {
   children?: React.ReactNode;
 }
 
-export default function Navbar({ className, children, ...props }: NavbarProps) {
+export default function Navbar({ ...props }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
