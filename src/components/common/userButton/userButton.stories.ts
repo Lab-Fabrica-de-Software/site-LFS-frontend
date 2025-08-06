@@ -13,20 +13,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof UserButton>;
 
-export const Clickable: Story = {
+export const Primary: Story = {
   args: {
     username: 'Image',
-    image: 'https://via.placeholder.com/150',
-    onClick: () => alert('User button clicked!'),   
+    image: 'https://picsum.photos/id/237/200/300',
+    href: "/"
   },
 };
 
-export const Disabled: Story = {
-  args: {
-    username: 'Image',
-    image: 'https://via.placeholder.com/150',
-  },
-};
 
 
 
