@@ -7,11 +7,7 @@ import React, { ComponentProps, useState } from "react";
 import { FaDiscord, FaLinkedin, FaBars, FaTimes } from "react-icons/fa";
 import { navLinks } from "@/constants/navLinks";
 
-interface NavbarProps extends ComponentProps<"nav"> {
-  children?: React.ReactNode;
-}
-
-export default function Navbar({ ...props }: NavbarProps) {
+export default function Navbar(props: ComponentProps<"nav">) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -25,8 +21,8 @@ export default function Navbar({ ...props }: NavbarProps) {
             <Image
               width={100}
               height={100}
-              src="/LFS.png"
-              alt="Logo"
+              src="/IconLFS.png"
+              alt="IconLFS"
               className="w-12 h-12"
             />
           </Link>

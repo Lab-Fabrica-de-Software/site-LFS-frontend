@@ -1,15 +1,57 @@
+import Image from 'next/image';
 import type { ComponentProps } from 'react';
+import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-export function Card({ className, ...props }: ComponentProps<"div">) {
+interface CardProps extends ComponentProps<"button"> {
+    className?: string;
+    image?: string;
+    imageContent?: React.ReactNode;
+}
+
+export function Card({ className, image, imageContent, children, onClick, ...props }: CardProps) {
+    const onClickStyle = {
+        card: "cursor-pointer hover:border-primary/70 hover:-translate-y-0.5 transition-shadow transition duration-300",
+        image: "group-hover:scale-105 transition-transform duration-500",
+        overlay: "group-hover:opacity-100 transition-opacity duration-300"
+    }
+
     return (
-        <div
+        <button
             data-slot="card"
             {...props}
-            className={twMerge("bg-card-background px-6 py-6",
+            className={twMerge("group bg-card-background appearance-none w-full text-left overflow-hidden flex flex-col",
+                onClick ? onClickStyle.card : "",
                 className
             )}
-        />
+            disabled={!onClick}
+        >
+            {image && (
+                <div className="relative w-full h-48 overflow-hidden">
+                    <Image
+                        src={image}
+                        alt="Card Image"
+                        className={`object-cover     ${onClick ? onClickStyle.image : ""}`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                        priority
+                    />
+
+                    <div className={`absolute inset-0 bg-linear-35 from-black/60 to-tramsparent opacity-0 ${onClick ? onClickStyle.overlay : ""}`}/>
+
+                    {imageContent && (
+                        <div className="absolute inset-0">
+                            {imageContent}
+                        </div>
+                    )}
+                </div>
+            )}
+
+
+            <div className={image ? "pt-2 px-4 pb-4 flex-1" : "p-4"}>
+                {children}
+            </div>
+        </button>
 
     );
 }
@@ -57,7 +99,7 @@ export function CardDescription({ className, ...props }: ComponentProps<"p">) {
         <p
             data-slot="card-description"
             {...props}
-            className={twMerge("text-sm font-medium",
+            className={twMerge("text-sm",
                 className
             )}
         />

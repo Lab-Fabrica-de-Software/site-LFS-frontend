@@ -20,7 +20,7 @@ export default function Footer({ className }: FooterProps) {
         
         <div>
           <Image
-            src="/logoLFS.png"
+            src="/LogoLFS.png"
             alt="Laboratório Fábrica de Software"
             width={112} 
             height={112}

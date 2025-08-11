@@ -93,7 +93,7 @@
 }
 
 .bg-card-background {
-  @apply border bg-card rounded-md;
+  @apply border bg-card rounded-xl;
 }
 
 @layer base {

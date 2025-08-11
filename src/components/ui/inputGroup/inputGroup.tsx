@@ -21,7 +21,7 @@ export function InputGroup({ inputLabel, inputIcon, children, ...props }: InputG
       >
         {inputIcon &&
           <span
-            className="text-gray-900 transition-all group-focus-within:text-gray-500"
+            className="text-gray-500 transition-all group-focus-within:text-gray-100"
           >
             {inputIcon}
           </span>
