@@ -17,14 +17,21 @@ type Story = StoryObj<typeof Tag>;
 
 export const Primary: Story = {
   args: {
-    text: 'Tag',
-    className:'',
+    children: <span>Tag Example</span>,
   },
 };
 
-export const CustomClass: Story = {
+export const Disabled: Story = {
   args: {
-    text: 'Custom Class',
-    className: 'text-sm',
+    children: <span>Tag Example</span>,
+    type: 'disabled',
   },
 };
+
+export const InProgress: Story = {
+  args: {
+    children: <span>Tag Example</span>,
+    type: 'inProgress',
+  },
+};
+
