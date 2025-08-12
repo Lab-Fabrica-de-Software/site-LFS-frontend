@@ -8,7 +8,11 @@ import { FaDiscord, FaLinkedin } from "react-icons/fa";
 import { navLinks } from "@/constants/navLinks";
 import { Menu } from "lucide-react";
 
-export function Navbar(props: ComponentProps<"nav">) {
+interface NavbarProps extends ComponentProps<"nav"> {
+  isVisible?: boolean;
+}
+
+export function Navbar({ isVisible = false, ...props }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -47,20 +51,24 @@ export function Navbar(props: ComponentProps<"nav">) {
             <Button>Ingresse Já</Button>
           </Link>
 
-          <Link
-            target="_blank"
-            rel="noreferrer"
-            href="https://discord.com/invite/caPTw4cSAr"
-          >
-            <FaDiscord className="text-white w-8 h-8 hover:text-primary/90 transition" />
-          </Link>
-          <Link
-            href="https://linkedin.com/company/laborat%C3%B3rio-f%C3%A1brica-de-software/posts/?feedView=all"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaLinkedin className="text-white w-8 h-8 hover:text-primary/90 transition" />
-          </Link>
+          {!isVisible && (
+            <>
+              <Link
+                target="_blank"
+                rel="noreferrer"
+                href="https://discord.com/invite/caPTw4cSAr"
+              >
+                <FaDiscord className="text-white w-8 h-8 hover:text-primary/90 transition" />
+              </Link>
+              <Link
+                href="https://linkedin.com/company/laborat%C3%B3rio-f%C3%A1brica-de-software/posts/?feedView=all"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaLinkedin className="text-white w-8 h-8 hover:text-primary/90 transition" />
+              </Link>
+            </>
+          )}
         </div>
 
         <button
@@ -91,22 +99,24 @@ export function Navbar(props: ComponentProps<"nav">) {
             <Link href="/">
               <Button className="py-1 h-8 text-sm">Ingresse Já</Button>
             </Link>
-            <div className="flex space-x-3 pt-2">
-              <Link
-                target="_blank"
-                rel="noreferrer"
-                href="https://discord.com/invite/caPTw4cSAr"
-              >
-                <FaDiscord className="text-white w-8 h-8 hover:text-primary/90 transition" />
-              </Link>
-              <Link
-                target="_blank"
-                rel="noreferrer"
-                href="https://www.linkedin.com/company/laborat%C3%B3rio-f%C3%A1brica-de-software/posts/?feedView=all"
-              >
-                <FaLinkedin className="text-white w-8 h-8 hover:text-primary/90 transition" />
-              </Link>
-            </div>
+            {!isVisible && (
+              <div className="flex space-x-3 pt-2">
+                <Link
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://discord.com/invite/caPTw4cSAr"
+                >
+                  <FaDiscord className="text-white w-8 h-8 hover:text-primary/90 transition" />
+                </Link>
+                <Link
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.linkedin.com/company/laborat%C3%B3rio-f%C3%A1brica-de-software/posts/?feedView=all"
+                >
+                  <FaLinkedin className="text-white w-8 h-8 hover:text-primary/90 transition" />
+                </Link>
+              </div>
+            )}
           </ul>
         </div>
       </div>
