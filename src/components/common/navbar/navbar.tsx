@@ -4,15 +4,16 @@ import { Button } from "@/components/ui/button/Button";
 import Image from "next/image";
 import Link from "next/link";
 import React, { ComponentProps, useState } from "react";
-import { FaDiscord, FaLinkedin, FaBars, FaTimes } from "react-icons/fa";
+import { FaDiscord, FaLinkedin } from "react-icons/fa";
 import { navLinks } from "@/constants/navLinks";
+import { Menu } from "lucide-react";
 
-export default function Navbar(props: ComponentProps<"nav">) {
+export function Navbar(props: ComponentProps<"nav">) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav
-      className="max-w-7xl md:mt-4 xl:mt-8 mx-auto md:px-4 lg:px-6 "
+      className="max-w-7xl md:mt-4 xl:mt-8 mx-auto md:px-4 lg:px-6"
       {...props}
     >
       <div className="border-b md:border border-6A6A6A bg-card md:rounded-2xl py-3.5 px-4 md:px-8 flex items-center justify-between">
@@ -23,7 +24,7 @@ export default function Navbar(props: ComponentProps<"nav">) {
               height={100}
               src="/IconLFS.png"
               alt="IconLFS"
-              className="w-12 h-12"
+              className="md:w-12 md:h-12 w-9.5"
             />
           </Link>
         </div>
@@ -51,14 +52,14 @@ export default function Navbar(props: ComponentProps<"nav">) {
             rel="noreferrer"
             href="https://discord.com/invite/caPTw4cSAr"
           >
-            <FaDiscord className="text-white w-9 h-9 hover:text-primary/90 transition" />
+            <FaDiscord className="text-white w-8 h-8 hover:text-primary/90 transition" />
           </Link>
           <Link
             href="https://linkedin.com/company/laborat%C3%B3rio-f%C3%A1brica-de-software/posts/?feedView=all"
             target="_blank"
             rel="noreferrer"
           >
-            <FaLinkedin className="text-white w-9 h-9 hover:text-primary/90 transition" />
+            <FaLinkedin className="text-white w-8 h-8 hover:text-primary/90 transition" />
           </Link>
         </div>
 
@@ -66,25 +67,31 @@ export default function Navbar(props: ComponentProps<"nav">) {
           className="md:hidden text-white text-xl"
           onClick={() => setIsOpen((prev) => !prev)}
         >
-          {isOpen ? <FaTimes /> : <FaBars />}
+          <Menu />
         </button>
+      </div>
 
-        {isOpen && (
-          <div className="absolute top-6 left-1/2 transform -translate-x-1/2 border-b border-6A6A6A bg-card w-full rounded-b-lg p-4 shadow-lg mt-12 flex flex-col space-y-4 z-50 md:hidden">
+      <div
+        className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-transform duration-500 ease-in-out bg-card border-b border-6A6A6A shadow-lg rounded-b-lg ${
+          isOpen ? "translate-y-15" : "-translate-y-full"
+        }`}
+      >
+        <div className="p-4">
+          <ul className="flex flex-col space-y-4 text-white text-lg">
             {navLinks.map((link, index) => (
               <li key={index}>
                 <Link
                   href={link.href}
-                  className="hover:text-primary/90 transition"
+                  className="hover:text-primary/90 text-sm transition"
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
             <Link href="/">
-              <Button>Ingresse Já</Button>
+              <Button className="py-1 h-8 text-sm">Ingresse Já</Button>
             </Link>
-            <div className="flex space-x-3">
+            <div className="flex space-x-3 pt-2">
               <Link
                 target="_blank"
                 rel="noreferrer"
@@ -100,8 +107,8 @@ export default function Navbar(props: ComponentProps<"nav">) {
                 <FaLinkedin className="text-white w-8 h-8 hover:text-primary/90 transition" />
               </Link>
             </div>
-          </div>
-        )}
+          </ul>
+        </div>
       </div>
     </nav>
   );

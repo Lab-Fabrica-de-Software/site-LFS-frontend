@@ -13,7 +13,7 @@ const variantClasses = {
 }
 
 export function Button({children, variant = "primary", className, ...props}: ButtonProps) {
-    const baseClasses = 'px-5 py-2 rounded-md font-medium transition-colors duration-200 cursor-pointer';
+    const baseClasses = 'px-5 py-2 h-10 flex items-center rounded-md font-medium transition-colors duration-200 cursor-pointer';
     const classes = twMerge(baseClasses, variantClasses[variant], className );
 
     return (<button {...props} className={classes}>
