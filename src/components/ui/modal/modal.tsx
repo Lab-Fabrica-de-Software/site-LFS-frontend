@@ -85,6 +85,7 @@ export function ModalHeader({
         <button
           type="button"
           aria-label="fechar-menu"
+          className="cursor-pointer"
           onClick={handleCloseModal}
         >
           <X size={20} />

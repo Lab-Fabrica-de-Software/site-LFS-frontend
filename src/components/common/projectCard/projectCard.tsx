@@ -12,28 +12,15 @@ import Tag from "@/components/ui/tag/tag";
 interface ProjectCardProps extends React.ComponentProps<typeof Card> {
   project: PortfolioProject;
   onClick?: () => void;
-  contentPadding?: boolean;
-  roundedImage?: boolean;
-  noBorder?: boolean;
-  internalPadding?: boolean;
 }
 
 export default function ProjectCard({
   project,
   onClick,
-  contentPadding,
-  roundedImage,
-  noBorder,
-  internalPadding,
 }: ProjectCardProps) {
   return (
     <Card
       onClick={onClick}
-      contentPadding={contentPadding}
-      roundedImage={roundedImage}
-      className={`${noBorder ? "border-none" : ""} ${
-        internalPadding ? "px-4" : ""
-      }`}
       image={project.images?.[0] || "/LogoLFSDark.png"}
       imageContent={
         <Tag
@@ -56,11 +43,11 @@ export default function ProjectCard({
         </Tag>
       }
     >
-      <CardHeader className={`mt-1 ${internalPadding ? "px-1" : ""}`}>
+      <CardHeader className="mt-1">
         <CardTitle className="text-primary">{project.title}</CardTitle>
       </CardHeader>
 
-      <CardContent className={`mt-1 ${internalPadding ? "px-1" : ""}`}>
+      <CardContent className="mt-1">
         <CardDescription>
           {project.description || "Sem descrição disponível."}
         </CardDescription>
@@ -72,7 +59,7 @@ export default function ProjectCard({
             </span>
 
             <div className="flex flex-row -space-x-1.5">
-              {project.collaborators?.map((member, index) => (
+              {project.collaborators.map((member, index) => (
                 <MemberButton member={member} key={index} />
               ))}
             </div>

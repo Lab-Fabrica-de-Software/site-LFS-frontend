@@ -47,7 +47,7 @@ export function Card({
             className={twMerge(
               "absolute top-0 left-0 w-full h-full object-cover",
               onClick ? onClickStyle.image : "",
-              roundedImage ? "rounded-lg" : "" // aplica borda arredondada
+              roundedImage ? "rounded-lg" : ""
             )}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
