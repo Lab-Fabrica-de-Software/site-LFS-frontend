@@ -1,32 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  ModalOverlay,
-  ModalRoot,
-  ModalHeader,
-} from "@/components/ui/modal/modal";
-import ProjectCard from "../projectCard/projectCard";
+import ProjectCard from "../projectCard";
 import { PortfolioProject } from "@/types/portfolioProject";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardDescription,
-} from "@/components/ui/card/card";
-import MemberButton from "../memberButton/memberButton";
-import Tag from "@/components/ui/tag/tag";
 import { FaGithub } from "react-icons/fa";
 import { ExternalLink, LinkIcon } from "lucide-react";
 import Link from "next/link";
+import { ModalHeader, ModalOverlay, ModalRoot } from "@/components/ui/modal";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Tag from "@/components/ui/tag";
+import MemberButton from "../memberButton";
 
 interface ProjectModalProps {
   project: PortfolioProject;
-  onClick?: () => void;
 }
 
-export function ProjectModal({ project, onClick }: ProjectModalProps) {
+export function ProjectModal({ project }: ProjectModalProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const renderIcons = () => {
@@ -34,18 +23,18 @@ export function ProjectModal({ project, onClick }: ProjectModalProps) {
       <>
         {project.repository && project.visibility === "public" && (
           <Link href={project.repository} target="_blank">
-            <FaGithub className="size-6 cursor-pointer" />
+            <FaGithub className="size-6 cursor-pointer hover:text-primary transition-all" />
           </Link>
         )}
         {project.homepage && (
           <Link href={project.homepage} title="Deploy" target="_blank">
-            <ExternalLink className="size-6 cursor-pointer" />
+            <ExternalLink className="size-6 cursor-pointer hover:text-primary transition-all" />
           </Link>
         )}
         {project.links &&
           project.links.map((link, index) => (
             <Link key={index} href={link.url} title={link.name} target="_blank">
-              <LinkIcon className="size-6 cursor-pointer" />
+              <LinkIcon className="size-6 cursor-pointer hover:text-primary transition-all" />
             </Link>
           ))}
       </>
@@ -62,15 +51,14 @@ export function ProjectModal({ project, onClick }: ProjectModalProps) {
 
       {isOpen && (
         <ModalOverlay onDimiss={() => setIsOpen(false)}>
-          <ModalRoot className="max-w-xl px-5">
-            <ModalHeader className="pt-4.5" onDimiss={() => setIsOpen(false)}>
+          <ModalRoot className="max-w-xl">
+            <ModalHeader onDimiss={() => setIsOpen(false)}>
               Visualizar Projeto
             </ModalHeader>
 
             <Card
-              onClick={onClick}
               contentPadding={true}
-              className="border-none pb-3"
+              className="border-none pb-3 w-full"
               image={project.images?.[0] || "/LogoLFSDark.png"}
               imageContent={
                 <Tag

@@ -1,21 +1,27 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { ModalHeader, ModalOverlay, ModalRoot } from './modal';
+import { ModalRoot, ModalOverlay, ModalHeader } from '.';
 
 
 const meta = {
-  title: 'UI/Modal', 
-  component: ModalRoot,
+  title: 'UI-COMPONENTS/Modal', 
+  component: ModalOverlay,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
-} satisfies Meta<typeof ModalRoot>;
+} satisfies Meta<typeof ModalOverlay>;
 
 export default meta;
-type Story = StoryObj<typeof ModalRoot>;
+type Story = StoryObj<typeof ModalOverlay>;
 
 export const Modal: Story = {
   args: {
-    
-    
+    children: (
+      <ModalRoot>
+          <ModalHeader onDimiss={() => {}}>Modal Header</ModalHeader>
+          <div className="py-">
+            This is a simple modal content.
+          </div>
+      </ModalRoot>
+    )
   },
 };
