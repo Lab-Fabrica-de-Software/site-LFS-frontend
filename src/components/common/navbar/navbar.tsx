@@ -9,10 +9,10 @@ import { navLinks } from "@/constants/navLinks";
 import { Menu } from "lucide-react";
 
 interface NavbarProps extends ComponentProps<"nav"> {
-  isVisible?: boolean;
+  socialIconsVisible?: boolean;
 }
 
-export function Navbar({ isVisible = false, ...props }: NavbarProps) {
+export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -51,7 +51,7 @@ export function Navbar({ isVisible = false, ...props }: NavbarProps) {
             <Button>Ingresse Já</Button>
           </Link>
 
-          {!isVisible && (
+          {!socialIconsVisible && (
             <>
               <Link
                 target="_blank"
@@ -99,7 +99,7 @@ export function Navbar({ isVisible = false, ...props }: NavbarProps) {
             <Link href="/">
               <Button className="py-1 h-8 text-sm">Ingresse Já</Button>
             </Link>
-            {!isVisible && (
+            {!socialIconsVisible && (
               <div className="flex space-x-3 pt-2">
                 <Link
                   target="_blank"
