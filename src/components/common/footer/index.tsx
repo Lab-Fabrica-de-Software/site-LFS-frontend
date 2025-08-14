@@ -10,13 +10,13 @@ interface FooterProps {
 
 export default function Footer({ className }: FooterProps) {
   const containerStyle = twMerge(
-    "max-w-7xl mx-auto bg-card border-t-1 text-foreground px-6 md:px-12 py-10 mt-10",
+    "bg-card border-t-1 text-foreground px-6 md:px-12 py-10 mt-10",
     className
   );
 
   return (
     <footer className={containerStyle}>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <div>
           <Image
@@ -49,7 +49,7 @@ export default function Footer({ className }: FooterProps) {
         ))}
       </div>
 
-      <div className="border-t border-border mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div className="border-t max-w-6xl mx-auto border-border mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-xs text-muted-foreground">
           Copyright ©2025 LFC inc. Todos direitos reservados. Laboratório
           Fábrica de Software LTDA.
