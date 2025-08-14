@@ -1,7 +1,7 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "../../ui/card/card";
-import MemberButton from "../memberButton/memberButton";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "../../ui/card";
+import MemberButton from "../memberButton";
 import { PortfolioProject } from "@/types/portfolioProject";
-import Tag from "@/components/ui/tag/tag";
+import Tag from "@/components/ui/tag";
 
 interface ProjectCardProps extends React.ComponentProps<typeof Card> {
     project: PortfolioProject;

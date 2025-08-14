@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import MemberButton from './memberButton';
+import MemberButton from '.';
 
 const meta: Meta<typeof MemberButton> = {
-  title: 'COMMON/MemberButton',
+  title: 'COMMON-COMPONENTS/MemberButton',
   component: MemberButton,
   parameters: {
     layout: 'centered',

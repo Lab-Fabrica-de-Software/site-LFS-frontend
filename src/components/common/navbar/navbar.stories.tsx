@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import {Navbar } from './navbar';
+import {Navbar } from '.';
 
 const meta: Meta<typeof Navbar> = {
-  title: 'COMMON/Navbar',
+  title: 'COMMON-COMPONENTS/Navbar',
   component: Navbar,
   parameters: {
     layout: 'fullscreen',
