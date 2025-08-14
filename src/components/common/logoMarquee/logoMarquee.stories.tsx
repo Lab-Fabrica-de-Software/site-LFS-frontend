@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import LogoMarquee from './logoMarquee';
+import LogoMarquee from '.';
 
 const meta = {
-  title: 'COMMON/LogoMarquee',
+  title: 'COMMON-COMPONENTS/LogoMarquee',
   component: LogoMarquee,
   parameters: {
     layout: 'fullscreen',

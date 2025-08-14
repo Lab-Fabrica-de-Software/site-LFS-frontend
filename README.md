@@ -60,7 +60,7 @@ Onde ficam as rotas, páginas e o layout principal (App Router).
 ### 📁 components/
 Componentes reutilizáveis, atômicos ou estruturais.
 - Ex: `Button`, `Navbar`, `Input`, `Footer`
-- Organizado por pastas (`common/`, `ui/`, etc)
+- Organizado por pastas (`COMMON-COMPONENT/`, `UI-COMPONENT/`, etc)
 
 ### 📁 hooks/
 Hooks personalizados em React.

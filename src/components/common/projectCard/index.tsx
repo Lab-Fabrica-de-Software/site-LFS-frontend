@@ -1,23 +1,20 @@
+import { PortfolioProject } from "@/types/portfolioProject";
+import Tag from "@/components/ui/tag";
 import {
   Card,
+  CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
-} from "../../ui/card/card";
-import MemberButton from "../memberButton/memberButton";
-import { PortfolioProject } from "@/types/portfolioProject";
-import Tag from "@/components/ui/tag/tag";
+} from "@/components/ui/card";
+import MemberButton from "../memberButton";
 
 interface ProjectCardProps extends React.ComponentProps<typeof Card> {
   project: PortfolioProject;
   onClick?: () => void;
 }
 
-export default function ProjectCard({
-  project,
-  onClick,
-}: ProjectCardProps) {
+export default function ProjectCard({ project, onClick }: ProjectCardProps) {
   return (
     <Card
       onClick={onClick}

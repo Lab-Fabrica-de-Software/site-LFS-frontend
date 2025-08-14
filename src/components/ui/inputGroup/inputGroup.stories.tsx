@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import { InputField, InputGroup, SelectField, TextAreaField } from './inputGroup';
+import { InputField, InputGroup, SelectField, TextAreaField } from '.';
 import { User } from 'lucide-react';
 
 const meta = {
-  title: 'UI/InputGroup',
+  title: 'UI-COMPONENTS/InputGroup',
   component: InputGroup,
   parameters: {
     layout: 'centered',

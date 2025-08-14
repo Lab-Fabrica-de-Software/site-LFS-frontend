@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import ProjectCard from './projectCard';
+import ProjectCard from '.';
 
 const meta: Meta<typeof ProjectCard> = {
-  title: 'COMMON/ProjectCard',
+  title: 'COMMON-COMPONENTS/ProjectCard',
   component: ProjectCard,
   parameters: {
     layout: 'centered',

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Button } from './Button';
+import { Button } from '.';
 
 
 const meta = {
-  title: 'UI/Button',
+  title: 'UI-COMPONENTS/Button',
   component: Button,
   parameters: {
     layout: 'centered',

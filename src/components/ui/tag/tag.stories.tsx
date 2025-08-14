@@ -1,10 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import Tag from './tag';
-
-
+import Tag from '.';
 
 const meta = {
-  title: 'UI/Tag',
+  title: 'UI-COMPONENTS/Tag',
   component: Tag,
   parameters: {
     layout: 'centered',
