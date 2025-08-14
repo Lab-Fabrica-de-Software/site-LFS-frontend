@@ -40,7 +40,7 @@ export default function Footer({ className }: FooterProps) {
               <Link
                 key={link.label}
                 href={link.href}
-                className="block text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+                className="block text-sm mb-1.5 text-muted-foreground hover:text-primary transition-colors duration-200"
               >
                 {link.label}
               </Link>
