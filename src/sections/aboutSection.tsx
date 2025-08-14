@@ -14,7 +14,7 @@ export function AboutSection() {
       </div>
       <div className="flex flex-col lg:flex-row items-center py-10 justify-between  gap-8">
         <div className="flex order-2 flex-col space-y-4">
-          <h2 className="text-4xl md:text-5xl mb-8 font-semibold">
+          <h2 className="text-4xl md:text-5xl md:mb-8 font-semibold">
             Fabricando seu <span className="text-primary">Futuro!</span>
           </h2>
           <p className="text-md lg:text-lg">
