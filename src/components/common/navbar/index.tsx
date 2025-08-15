@@ -20,7 +20,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
       className="max-w-7xl z-50 fixed top-0 w-full left-0 right-0 lg:top-4 mx-auto md:px-4 lg:px-6"
       {...props}
     >
-      <div className="border-b lg:border border-6A6A6A bg-card lg:rounded-2xl py-3.5 px-4 lg:px-8 flex items-center justify-between">
+      <div className="border-b lg:border border-6A6A6A bg-card lg:rounded-2xl py-3 px-4 lg:px-8 flex items-center justify-between">
         <div className="flex items-center space-x-1">
           <Link href="/">
             <Image

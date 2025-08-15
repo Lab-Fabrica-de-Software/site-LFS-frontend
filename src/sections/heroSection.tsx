@@ -5,13 +5,13 @@ export function HeroSection() {
     <div className="lg:min-h-[90dvh] flex justify-center items-center bg-[url('/hero-background.png')] bg-cover bg-center overflow-hidden">
       <div className="container mx-auto px-4 pt-30 pb-32 relative z-10">
         <div className="max-w-4xl mx-auto md:text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-none">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white  leading-11 md:leading-none">
             O primeiro passo para novos{" "}
             <span className="block md:mt-2">desenvolvedores se tornarem</span>
             <span className="text-primary block md:mt-2">profissionais</span>
           </h1>
 
-          <p className="text-gray-300 text-lg md:text-xl mt-8 max-w-2xl mx-auto leading-6">
+          <p className="text-gray-300 text-lg md:text-xl mt-4 md:mt-8 max-w-2xl mx-auto leading-7 md:leading-6">
             Participe de projetos e acelere seu desenvolvimento.
             <span className="block mt-1">
               Construa sua experiência conosco!
@@ -50,7 +50,7 @@ export function HeroSection() {
         </svg>
       </div>
 
-      <div className="absolute bottom-0 z-50 right-10 w-full h-32 bg-white/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 z-10 right-10 w-full h-32 bg-white/10 rounded-full blur-3xl"></div>
     </div>
   );
 }
