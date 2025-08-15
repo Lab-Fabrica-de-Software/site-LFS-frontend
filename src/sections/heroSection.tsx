@@ -1,24 +1,37 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   return (
-    <div className="min-h-[80dvh] sm:min-h-[85dvh] flex justify-center relative bg-[url('/hero-background.png')] bg-cover bg-center">
-      <div className="container flex flex-col sm:items-center sm:text-center pt-10 sm:py-24 z-10 relative">
-        <h1 className="text-4xl max-[768px]:text-5xl md:text-6xl text-white font-bold">
-          O primeiro passo para novos{" "}
-          <span className="block sm:my-2">desenvolvedores se tornarem </span>
-          <span className="text-primary block">profissionais</span>
-        </h1>
-        <p className="text-foreground/80 roboto font-medium sm:text-lg mt-5">
-          Participe de projetos e acelere seu desenvolvimento.
-          <span className="block">Construa sua experiência conosco!</span>
-        </p>
-        <Button className="mt-5 w-fit text-lg px-6" aria-label="Estou interessado">
-          Estou interessado
-        </Button>
+    <div className="lg:min-h-[90dvh] relative flex justify-center items-center bg-[url('/hero-background.png')] bg-cover bg-center overflow-hidden">
+      <div className="container mx-auto px-4 pt-30 pb-32 relative z-10">
+        <div className="max-w-4xl mx-auto md:text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-none">
+            O primeiro passo para novos <span className="block md:mt-2">desenvolvedores se tornarem</span>
+            <span className="text-primary block md:mt-2">profissionais</span>
+          </h1>
+
+          <p className="text-gray-300 text-lg md:text-xl mt-8 max-w-2xl mx-auto leading-6">
+            Participe de projetos e acelere seu desenvolvimento.
+            <span className="block mt-1">Construa sua experiência conosco!</span>
+          </p>
+
+         <div className="flex md:justify-center mt-4">
+           <Button
+            aria-label="Estou interessado"
+          >
+            Estou interessado
+          </Button>
+         </div>
+        </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-100 bg-gradient-to-t from-[#A5DAAF]/20 via-transparent to-transparent backdrop-blur-3xl z-0"></div>
+      <div className="absolute bottom-0 left-0 right-0 z-0">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-24 md:h-32">
+          <path d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z" fill="#22c55e" className="opacity-90" />
+        </svg>
+      </div>
+
+      <div className="absolute bottom-0 z-50 right-10 w-full h-32 bg-white/10 rounded-full blur-3xl"></div>
     </div>
-  );
+  )
 }
