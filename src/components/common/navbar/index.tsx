@@ -17,10 +17,10 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
 
   return (
     <nav
-      className="max-w-7xl z-50 fixed top-0 w-full left-0 right-0 lg:top-4 mx-auto md:px-4 lg:px-6"
+      className="max-w-7xl z-50 fixed top-0 w-full left-0 right-0 lg:top-4 mx-auto lg:px-6"
       {...props}
     >
-      <div className="border-b lg:border border-6A6A6A bg-card lg:rounded-2xl py-3 px-4 lg:px-8 flex items-center justify-between">
+      <div className="border-b lg:border border-6A6A6A bg-card/80 backdrop-blur-md lg:rounded-2xl py-3 px-4 lg:px-8 flex items-center justify-between">
         <div className="flex items-center space-x-1">
           <Link href="/">
             <Image
@@ -28,7 +28,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
               height={100}
               src="/IconLFS.png"
               alt="IconLFS"
-              className="md:w-12 md:h-12 w-9.5"
+              className="md:w-10 md:h-10 w-9.5"
             />
           </Link>
         </div>

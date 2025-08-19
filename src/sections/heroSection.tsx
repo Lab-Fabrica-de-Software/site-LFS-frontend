@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
   return (
-    <div className="lg:min-h-[90dvh] flex justify-center items-center bg-[url('/hero-background.png')] bg-cover bg-center overflow-hidden">
-      <div className="container mx-auto px-4 pt-30 pb-32 relative z-10">
+    <div className="lg:min-h-[100dvh] md:min-h-[100dvh] min-h-[70dvh] flex justify-center items-center bg-[url('/hero-background.png')] bg-cover bg-center overflow-hidden">
+      <div className="container mx-auto pt-30 pb-20 md:p-0 relative z-10">
         <div className="max-w-4xl mx-auto md:text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white  leading-11 md:leading-none">
             O primeiro passo para novos{" "}
@@ -24,33 +24,21 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute hidden md:block top-115 bottom-0 left-0 right-0 z-0">
+      <div className="absolute hidden md:block bottom-0  w-full overflow-hidden leading-none">
         <svg
-          viewBox="0 0 1200 120"
+          className="w-full h-24 md:h-32 lg:h-40 text-green-500"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
           preserveAspectRatio="none"
-          className="w-full h-24 md:h-30"
         >
           <path
-            d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z"
-            fill="#22c55e"
-            className="opacity-90"
-          />
-        </svg>
-
-        <svg
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          className="w-full hidden md:block h-24 md:h-32 transform rotate-180"
-        >
-          <path
-            d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z"
-            fill="#22c55e"
-            className="opacity-90"
-          />
+            fill="currentColor"
+            d="M0,192L48,181.3C96,171,192,149,288,144C384,139,480,149,576,176C672,203,768,245,864,256C960,267,1056,245,1152,224C1248,203,1344,181,1392,170.7L1440,160V320H0Z"
+          ></path>
         </svg>
       </div>
 
-      <div className="absolute bottom-0 z-10 right-10 w-full h-32 bg-white/10 rounded-full blur-3xl"></div>
+      <div className="absolute hidden sm:block bottom-0 z-10 right-10 w-full h-32 bg-white/10 rounded-full blur-3xl"></div>
     </div>
   );
 }
