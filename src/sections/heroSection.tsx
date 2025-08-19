@@ -21,8 +21,8 @@ export function HeroSection() {
             </span>
           </p>
 
-          <div className="flex md:justify-center mt-4">
-            <Button aria-label="Estou interessado">Estou interessado</Button>
+          <div className="flex md:justify-center mt-8">
+            <Button aria-label="Estou interessado" className="h-12 text-xl">Estou interessado</Button>
           </div>
         </div>
       </div>
