@@ -1,20 +1,20 @@
 import { Button } from "@/components/ui/button";
+import { ArrowDown } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <div className="relative lg:min-h-[92dvh] md:min-h-[100dvh] min-h-[70dvh] flex justify-center items-center overflow-hidden">
-      
+    <div className="relative xl:min-h-[92dvh lg:min-h-[95dvh]] md:min-h-[100dvh] min-h-[70dvh] flex justify-center items-center overflow-hidden">
       <div className="absolute inset-0 bg-[url('/hero-background.png')] bg-cover bg-center filter saturate-0 brightness-50" />
 
       <div className="container mx-auto pt-30 pb-20 md:p-0 relative z-10">
         <div className="max-w-5xl mx-auto md:text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-11 md:leading-none">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-11 md:leading-none">
             O primeiro passo para novos{" "}
             <span className="block md:mt-2">desenvolvedores se tornarem</span>
             <span className="text-primary block md:mt-2">profissionais</span>
           </h1>
 
-          <p className="text-gray-300 text-lg md:text-xl mt-4 md:mt-8 max-w-2xl mx-auto leading-7 md:leading-6">
+          <p className="text-gray-300 text-md md:text-xl mt-4 md:mt-8 max-w-2xl mx-auto leading-7 md:leading-6">
             Participe de projetos e acelere seu desenvolvimento.
             <span className="block mt-1">
               Construa sua experiência conosco!
@@ -22,7 +22,10 @@ export function HeroSection() {
           </p>
 
           <div className="flex md:justify-center mt-8">
-            <Button aria-label="Estou interessado" className="h-12 text-xl">Estou interessado</Button>
+            <Button aria-label="Estou interessado" className="h-11 md:h-12 inline-flex gap-3 text-lg md:text-xl group">
+              Estou interessado
+              <ArrowDown size={20} className="group-hover:scale-110"/>
+            </Button>
           </div>
         </div>
       </div>
@@ -45,4 +48,3 @@ export function HeroSection() {
     </div>
   );
 }
-
