@@ -2,10 +2,13 @@ import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
   return (
-    <div className="lg:min-h-[100dvh] md:min-h-[100dvh] min-h-[70dvh] flex justify-center items-center bg-[url('/hero-background.png')] bg-cover bg-center overflow-hidden">
+    <div className="relative lg:min-h-[92dvh] md:min-h-[100dvh] min-h-[70dvh] flex justify-center items-center overflow-hidden">
+      
+      <div className="absolute inset-0 bg-[url('/hero-background.png')] bg-cover bg-center filter saturate-0 brightness-50" />
+
       <div className="container mx-auto pt-30 pb-20 md:p-0 relative z-10">
-        <div className="max-w-4xl mx-auto md:text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white  leading-11 md:leading-none">
+        <div className="max-w-5xl mx-auto md:text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-11 md:leading-none">
             O primeiro passo para novos{" "}
             <span className="block md:mt-2">desenvolvedores se tornarem</span>
             <span className="text-primary block md:mt-2">profissionais</span>
@@ -24,7 +27,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute hidden md:block bottom-0  w-full overflow-hidden leading-none">
+      <div className="absolute hidden md:block bottom-0 w-full overflow-hidden leading-none">
         <svg
           className="w-full h-24 md:h-32 lg:h-40 text-green-500"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,3 +45,4 @@ export function HeroSection() {
     </div>
   );
 }
+
