@@ -20,7 +20,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
       className="max-w-7xl z-50 fixed top-0 w-full left-0 right-0 lg:top-4 mx-auto lg:px-6"
       {...props}
     >
-      <div className="border-b lg:border border-6A6A6A bg-card/80 backdrop-blur-md lg:rounded-2xl py-3 px-4 lg:px-8 flex items-center justify-between">
+      <div className="border-b lg:border bg-card/95 md:bg-card/80 backdrop-blur-md lg:rounded-2xl py-3 px-4 lg:px-8 flex items-center justify-between">
         <div className="flex items-center space-x-1">
           <Link href="/">
             <Image
@@ -33,13 +33,13 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
           </Link>
         </div>
 
-        <div className="hidden md:flex items-center space-x-4 text-white text-xl">
+        <div className="hidden md:flex items-center space-x-4 text-white">
           <ul className="flex space-x-6">
             {navLinks.map((link, index) => (
               <li key={index}>
                 <Link
                   href={link.href}
-                  className="hover:text-primary/90 transition"
+                  className="hover:text-primary/90 text-lg transition"
                 >
                   {link.label}
                 </Link>
@@ -48,7 +48,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
           </ul>
 
           <Link href="/">
-            <Button>Ingresse Já</Button>
+            <Button className="text-lg">Ingresse Já</Button>
           </Link>
 
           {!socialIconsVisible && (
@@ -72,7 +72,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
         </div>
 
         <button
-          className="md:hidden text-white text-xl"
+          className="md:hidden"
           onClick={() => setIsOpen((prev) => !prev)}
         >
           <Menu />
@@ -80,7 +80,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
       </div>
 
       <div
-        className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-transform duration-500 ease-in-out bg-card border-b border-6A6A6A shadow-lg rounded-b-lg ${
+        className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-transform duration-500 ease-in-out border-b bg-card/95 backdrop-blur-md shadow-lg rounded-b-lg ${
           isOpen ? "translate-y-15" : "-translate-y-full"
         }`}
       >
