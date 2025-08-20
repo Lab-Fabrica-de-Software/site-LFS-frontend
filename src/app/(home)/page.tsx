@@ -1,7 +1,16 @@
+import LogoMarquee from "@/components/common/logoMarquee";
+import { partners } from "@/constants/logoMarquee";
+import { AboutSection } from "@/sections/aboutSection";
+import { HeroSection } from "@/sections/heroSection";
+import { HiringSection } from "@/sections/hiringSection";
+
 export default async function Page() {
   return (
-    <div>
-      <p className="text-3xl">Hello World</p>
-    </div>
+    <>
+      <HeroSection />
+      <LogoMarquee items={partners} />
+      <AboutSection />
+      <HiringSection />
+    </>
   );
 }

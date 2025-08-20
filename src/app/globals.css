@@ -1,6 +1,6 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-@custom-variant dark (&:is(.dark *));
+@import "tailwindcss";
 
 @theme inline {
   --color-background: var(--background);
@@ -106,3 +106,43 @@
   }
 }
 
+@keyframes fadeInZoomIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fadeInZoomIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in-zoom-in {
+  animation: fadeInZoomIn .2s ease forwards
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-4 lg:px-7;
+}
+
+.roboto {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.button{
+  @apply bg-primary hover:bg-primary/70 text-[#252525] px-5 py-2 h-10 flex items-center rounded-md font-medium transition-colors duration-200 cursor-pointer
+}

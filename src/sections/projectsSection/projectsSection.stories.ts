@@ -19,8 +19,8 @@ export const Primary: Story = {
     projects: [
       {
         id: '1',
-        title: 'Project Four',
-        description: 'Description for project three.',
+        title: 'Project One',
+        description: 'Description for project one.',
         links: [
           {
             name: 'Teste',
@@ -31,8 +31,8 @@ export const Primary: Story = {
       },
       {
         id: '2',
-        title: 'Project Four',
-        description: 'Description for project three.',
+        title: 'Project Two',
+        description: 'Description for project two.',
         links: [
           {
             name: 'Teste',
@@ -43,7 +43,7 @@ export const Primary: Story = {
       },
       {
         id: '3',
-        title: 'Project Four',
+        title: 'Project Three',
         description: 'Description for project three.',
         links: [
           {
@@ -56,7 +56,7 @@ export const Primary: Story = {
       {
         id: '4',
         title: 'Project Four',
-        description: 'Description for project three.',
+        description: 'Description for project four.',
         links: [
           {
             name: 'Teste',
@@ -66,5 +66,6 @@ export const Primary: Story = {
         status: "completed"
       },
     ],
+    limit: 3,
   },
 };

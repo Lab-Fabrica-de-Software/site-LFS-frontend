@@ -17,10 +17,10 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
 
   return (
     <nav
-      className="max-w-7xl md:mt-4 xl:mt-8 mx-auto md:px-4 lg:px-6"
+      className="max-w-7xl z-50 fixed top-0 w-full left-0 right-0 lg:top-4 mx-auto lg:px-6"
       {...props}
     >
-      <div className="border-b md:border border-6A6A6A bg-card md:rounded-2xl py-3.5 px-4 md:px-8 flex items-center justify-between">
+      <div className="border-b lg:border bg-card/95 md:bg-card/80 backdrop-blur-md lg:rounded-2xl py-3 px-4 lg:px-8 flex items-center justify-between">
         <div className="flex items-center space-x-1">
           <Link href="/">
             <Image
@@ -28,18 +28,18 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
               height={100}
               src="/IconLFS.png"
               alt="IconLFS"
-              className="md:w-12 md:h-12 w-9.5"
+              className="md:w-10 md:h-10 w-9.5"
             />
           </Link>
         </div>
 
-        <div className="hidden md:flex items-center space-x-4 text-white text-xl">
+        <div className="hidden md:flex items-center space-x-4 text-white">
           <ul className="flex space-x-6">
             {navLinks.map((link, index) => (
               <li key={index}>
                 <Link
                   href={link.href}
-                  className="hover:text-primary/90 transition"
+                  className="hover:text-primary/90 text-lg transition"
                 >
                   {link.label}
                 </Link>
@@ -48,7 +48,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
           </ul>
 
           <Link href="/">
-            <Button>Ingresse Já</Button>
+            <Button className="text-lg">Ingresse Já</Button>
           </Link>
 
           {!socialIconsVisible && (
@@ -72,7 +72,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
         </div>
 
         <button
-          className="md:hidden text-white text-xl"
+          className="md:hidden"
           onClick={() => setIsOpen((prev) => !prev)}
         >
           <Menu />
@@ -80,7 +80,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
       </div>
 
       <div
-        className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-transform duration-500 ease-in-out bg-card border-b border-6A6A6A shadow-lg rounded-b-lg ${
+        className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-transform duration-500 ease-in-out border-b bg-card/95 backdrop-blur-md shadow-lg rounded-b-lg ${
           isOpen ? "translate-y-15" : "-translate-y-full"
         }`}
       >
