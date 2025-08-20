@@ -10,7 +10,6 @@ export const footerLinks = [
     title: "Suporte",
     links: [
       { label: "Contato", href: "/contato" },
-      { label: "Whatsapp", href: "https://chat.whatsapp.com/HVRjmSdMzMjBAQj8DXPb30", external: true },
     ],
   },
 ];
