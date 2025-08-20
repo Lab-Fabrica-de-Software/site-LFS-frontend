@@ -8,7 +8,7 @@ interface InputGroupProps extends ComponentProps<"div"> {
 
 export function InputGroup({ inputLabel, inputIcon, children, ...props }: InputGroupProps) {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1 w-full">
       {inputLabel && (
         <label className="text-gray-300">
           {inputLabel}
@@ -43,14 +43,14 @@ export function InputField(props: ComponentProps<"input">) {
 
 export function TextAreaField(props: ComponentProps<"textarea">) {
   return (
-    <textarea className={`${FieldStyles} resize-none`} {...props} />
+    <textarea className={`${FieldStyles} resize-none min-h-[120px]`} {...props} />
   )
 }
 
 export function SelectField({ children, ...props }: ComponentProps<"select">) {
   return (
     <div className="relative flex-1">
-      <select className="appearance-none w-full outline-0 mr-8 cursor-pointer" {...props}>
+      <select className="appearance-none w-full outline-0 mr-8 cursor-pointer text-gray-300 text-xs" {...props}>
         {children}
       </select>
 
