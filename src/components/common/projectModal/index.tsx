@@ -51,7 +51,7 @@ export function ProjectModal({ project }: ProjectModalProps) {
 
       {isOpen && (
         <ModalOverlay onDimiss={() => setIsOpen(false)}>
-          <ModalRoot className="max-w-xl">
+          <ModalRoot className="max-w-xl px-6">
             <ModalHeader onDimiss={() => setIsOpen(false)}>
               Visualizar Projeto
             </ModalHeader>

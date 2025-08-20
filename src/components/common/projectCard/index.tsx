@@ -15,6 +15,7 @@ interface ProjectCardProps extends React.ComponentProps<typeof Card> {
 }
 
 export default function ProjectCard({ project, onClick }: ProjectCardProps) {
+  const characterLimit = 100;
   return (
     <Card
       onClick={onClick}
@@ -40,13 +41,17 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
         </Tag>
       }
     >
-      <CardHeader className="mt-1">
+      <CardHeader className="mt-2">
         <CardTitle className="text-primary">{project.title}</CardTitle>
       </CardHeader>
 
-      <CardContent className="mt-1">
-        <CardDescription>
-          {project.description || "Sem descrição disponível."}
+      <CardContent className="mt-0.5">
+        <CardDescription className="opacity-80">
+          {project.description
+            ? project.description.length > characterLimit
+              ? project.description.slice(0, characterLimit) + "..."
+              : project.description
+            : "Sem descrição disponível."}
         </CardDescription>
 
         {project.collaborators && project.collaborators.length > 0 && (

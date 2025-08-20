@@ -2,16 +2,22 @@ import Image from "next/image";
 
 export function HiringSection() {
   return (
-    <div className="flex flex-col lg:flex-row items-center py-20 justify-between container gap-8">
+    <section
+      id="hiring"
+      aria-labelledby="hiring-title"
+      className="flex flex-col lg:flex-row items-center py-20 justify-between container gap-8"
+    >
       <div className="flex flex-col space-y-2.5">
-        <h2 className="text-4xl md:text-5xl font-semibold">Estamos <span className="text-primary">Recrutando</span></h2>
-        <p className="text-md lg:text-lg">
+        <h2 id="hiring-title" className="text-4xl md:text-5xl font-semibold">
+          Estamos <span className="text-primary">Recrutando</span>
+        </h2>
+        <p className="text-md opacity-80 lg:text-lg">
           Aproveite essa oportunidade única para entrar no Laboratório Fábrica
           de Software para ter experiências únicas que irão te preparar ao
           mercado de trabalho! Fabrique projetos, aprenda sobre trabalho
           coletivo, lideranças e ache sua área com mais facilidade!
         </p>
-        <p className="text-md lg:text-lg">
+        <p className="text-md opacity-80 lg:text-lg">
           Descubra novas habilidades na prática e desenvolva soluções reais
           junto com seus colegas. Mais do que aprender, aqui você trabalha firme
           desde o primeiro dia!
@@ -19,12 +25,13 @@ export function HiringSection() {
       </div>
       <Image
         src="/hiring.svg"
-        alt="hiring-photo"
+        alt="Ilustração representando oportunidades de recrutamento no Laboratório Fábrica de Software"
         width={0}
         height={0}
         sizes="100vw"
         className="lg:h-110 w-full"
+        loading="lazy"
       />
-    </div>
+    </section>
   );
 }

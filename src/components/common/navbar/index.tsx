@@ -16,11 +16,11 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav
+    <header
       className="max-w-7xl z-50 fixed top-0 w-full left-0 right-0 lg:top-4 mx-auto lg:px-6"
       {...props}
     >
-      <div className="border-b lg:border bg-card/95 md:bg-card/80 backdrop-blur-md lg:rounded-2xl py-3 px-4 lg:px-8 flex items-center justify-between">
+      <nav className="border-b lg:border bg-card/95 md:bg-card/80 backdrop-blur-md lg:rounded-2xl py-3 px-4 lg:px-8 flex items-center justify-between">
         <div className="flex items-center space-x-1">
           <Link href="/">
             <Image
@@ -29,6 +29,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
               src="/IconLFS.png"
               alt="IconLFS"
               className="md:w-10 md:h-10 w-9.5"
+              priority
             />
           </Link>
         </div>
@@ -77,7 +78,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
         >
           <Menu />
         </button>
-      </div>
+      </nav>
 
       <div
         className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-transform duration-500 ease-in-out border-b bg-card/95 backdrop-blur-md shadow-lg rounded-b-lg ${
@@ -120,6 +121,6 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
           </ul>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }

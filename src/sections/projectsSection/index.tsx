@@ -1,46 +1,61 @@
-import ProjectCard from '@/components/common/projectCard';
-import { ProjectModal } from '@/components/common/projectModal';
-import { Button } from '@/components/ui/button';
-import { PortfolioProject } from '@/types/portfolioProject';
-import Link from 'next/link';
-import React from 'react';
+import { ProjectModal } from "@/components/common/projectModal";
+import { RedirectButton } from "@/components/ui/button";
+import { PortfolioProject } from "@/types/portfolioProject";
+import React from "react";
 
 interface ProjectsSectionProps {
-    projects: PortfolioProject[];
-    limit?: number;
-    showViewAllButton?: boolean;
+  projects: PortfolioProject[];
+  limit?: number;
+  showViewAllButton?: boolean;
 }
 
 export default function ProjectsSection({
-    projects,
-    limit = 4,
-    showViewAllButton = true,
+  projects,
+  limit = 4,
+  showViewAllButton = true,
 }: ProjectsSectionProps) {
-    const displayedProjects = projects.slice(0, limit);
+  const displayedProjects = projects.slice(0, limit);
 
-    return (
-        <div>
-            <div className="w-full flex flex-row justify-between items-center mb-4">
-                <span className="text-lg font-semibold">Veja alguns dos nossos projetos</span>
+  return (
+    <section
+      id="projects"
+      aria-labelledby="projects-title"
+      className="container pt-14 md:pt-18 md:pb-15 mx-auto w-full"
+    >
+      <header className="w-full">
+        <h2 id="projects-title" className="text-3xl md:text-4xl font-semibold">
+          Veja alguns dos nossos projetos
+        </h2>
 
-                {showViewAllButton && projects.length > limit && (
-                    <div className="hidden md:block">
-                        <Link href="/projects" className="button">Ver mais</Link>
-                    </div>
-                )}
-            </div>
+        {showViewAllButton && projects.length > limit && (
+          <RedirectButton href="/projects" className="hidden md:block">
+            Ver mais
+          </RedirectButton>
+        )}
+      </header>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {displayedProjects.map((project) => (
-                    <ProjectModal project={project} key={project.id} />
-                ))}
-            </div>
+      <p className="mt-2 mb-6 opacity-70">
+        Veja uma prévia de alguns projetos produzido pelo nosso time.
+      </p>
 
-            {showViewAllButton && projects.length > limit && (
-                <div className="flex justify-center mt-4 md:hidden">
-                    <Link className="button flex justify-center mt-4 md:hidden w-full" href="/projects">Ver mais</Link>
-                </div>
-            )}
+      {projects.length > 0 ? (
+        <div className="grid gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {displayedProjects.map((project) => (
+              <ProjectModal project={project} key={project.id} />
+            ))}
+          </div>
         </div>
-    );
+      ) : (
+        <div className="flex w-full items-center mt-3">
+          <span className="opacity-70">Erro ao localizar projetos</span>
+        </div>
+      )}
+      {showViewAllButton && projects.length > limit && (
+        <RedirectButton className="mt-4 md:hidden w-full" href="/projects">
+          Ver mais
+        </RedirectButton>
+      )}
+    </section>
+  );
 }

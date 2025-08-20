@@ -5,10 +5,10 @@ export const navLinks = [
     },
     {
         label: "Sobre Nós",
-        href: "#",
+        href: "#about",
     },
     {
         label: "Projetos",
-        href: "#",
+        href: "#projects",
     },
 ];

@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { PortfolioProject } from '@/types/portfolioProject';
-import { Member } from '@/types/member';
-import axios from 'axios';
-
+import { PortfolioProject } from "@/types/portfolioProject";
+import { Member } from "@/types/member";
+import axios from "axios";
 
 const token = process.env.GITHUB_TOKEN;
 const headers = {
   Authorization: `Bearer ${token}`,
-  Accept: 'application/vnd.github.v3+json',
+  Accept: "application/vnd.github.v3+json",
 };
 
 const fetchInfoJson = async (repoName: string) => {
@@ -20,7 +19,7 @@ const fetchInfoJson = async (repoName: string) => {
     const content = res.data?.content;
     if (!content) return null;
 
-    const decoded = Buffer.from(content, 'base64').toString('utf-8');
+    const decoded = Buffer.from(content, "base64").toString("utf-8");
     return JSON.parse(decoded);
   } catch {
     return null;
@@ -46,35 +45,43 @@ const fetchCollaborators = async (repoName: string): Promise<Member[]> => {
 };
 
 export const fetchPortfolioProjects = async (): Promise<PortfolioProject[]> => {
-  const reposRes = await axios.get(
-    'https://api.github.com/search/repositories?q=org:Lab-Fabrica-de-Software+topic:portfolio',
-    { headers }
-  );
+  try {
+    const reposRes = await axios.get(
+      "https://api.github.com/search/repositories?q=org:Lab-Fabrica-de-Software+topic:portfolio",
+      { headers }
+    );
 
-  const repos = reposRes.data.items;
+    const repos = reposRes.data.items;
 
-  const projects = await Promise.all(
-    repos.map(async (repo: any) => {
-      const [infoJson, collaborators] = await Promise.all([
-        fetchInfoJson(repo.name),
-        fetchCollaborators(repo.name),
-      ]);
+    const projects = await Promise.all(
+      repos.map(async (repo: any) => {
+        const [infoJson, collaborators] = await Promise.all([
+          fetchInfoJson(repo.name),
+          fetchCollaborators(repo.name),
+        ]);
 
-      return {
-        id: String(repo.id),
-        title: infoJson?.title || repo.name,
-        description: infoJson?.description || repo.description ||  '',
-        images: infoJson?.images || [],
-        status: infoJson?.status || 'in-progress',
-        stacks: infoJson?.stacks || repo.topics.filter((stack: string) => stack !== "portfolio") || [],
-        links: infoJson?.links || [],
-        collaborators,
-        repository: repo.html_url,
-        homepage: repo.homepage,
-        visibility: repo.user_view_type
-      };
-    })
-  );
+        return {
+          id: String(repo.id),
+          title: infoJson?.title || repo.name,
+          description: infoJson?.description || repo.description || "",
+          images: infoJson?.images || [],
+          status: infoJson?.status || "in-progress",
+          stacks:
+            infoJson?.stacks ||
+            repo.topics.filter((stack: string) => stack !== "portfolio") ||
+            [],
+          links: infoJson?.links || [],
+          collaborators,
+          repository: repo.html_url,
+          homepage: repo.homepage,
+          visibility: repo.user_view_type,
+        };
+      })
+    );
 
-  return projects;
+    return projects;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (error) {
+    return [];
+  }
 };
