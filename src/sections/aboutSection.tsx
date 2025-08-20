@@ -34,8 +34,8 @@ export function AboutSection() {
         <Image
           src="/about.png"
           alt="hiring-photo"
-          width={0}
-          height={0}
+          width={600}
+          height={400}
           sizes="100vw"
           className="lg:h-140 w-full order-1"
           loading="lazy"

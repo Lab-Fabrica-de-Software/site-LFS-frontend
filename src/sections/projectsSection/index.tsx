@@ -28,7 +28,7 @@ export default function ProjectsSection({
         </h2>
 
         {showViewAllButton && projects.length > limit && (
-          <RedirectButton href="/projects" className="hidden md:block">
+          <RedirectButton href="/projects"  className="hidden md:block">
             Ver mais
           </RedirectButton>
         )}

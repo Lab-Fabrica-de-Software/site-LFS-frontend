@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button, RedirectButton } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import React, { ComponentProps, useState } from "react";
@@ -40,6 +40,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
               <li key={index}>
                 <Link
                   href={link.href}
+                  aria-label={`Navege para: ${link.label}`}
                   className="hover:text-primary/90 text-lg transition"
                 >
                   {link.label}
@@ -48,15 +49,16 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
             ))}
           </ul>
 
-          <Link href="/">
-            <Button className="text-lg">Ingresse Já</Button>
-          </Link>
+          <RedirectButton href="/" className="text-lg">
+            Ingresse Já
+          </RedirectButton>
 
           {!socialIconsVisible && (
             <>
               <Link
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Discord"
                 href="https://discord.com/invite/caPTw4cSAr"
               >
                 <FaDiscord className="text-white w-8 h-8 hover:text-primary/90 transition" />
@@ -64,6 +66,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
               <Link
                 href="https://linkedin.com/company/laborat%C3%B3rio-f%C3%A1brica-de-software/posts/?feedView=all"
                 target="_blank"
+                aria-label="LinkedIn"
                 rel="noreferrer"
               >
                 <FaLinkedin className="text-white w-8 h-8 hover:text-primary/90 transition" />
@@ -74,6 +77,9 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
 
         <button
           className="md:hidden"
+          aria-label={
+            isOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"
+          }
           onClick={() => setIsOpen((prev) => !prev)}
         >
           <Menu />
@@ -91,6 +97,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
               <li key={index}>
                 <Link
                   href={link.href}
+                  aria-label={`Navege para: ${link.label}`}
                   className="hover:text-primary/90 text-sm transition"
                 >
                   {link.label}
@@ -105,14 +112,16 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
                 <Link
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="Discord"
                   href="https://discord.com/invite/caPTw4cSAr"
                 >
                   <FaDiscord className="text-white w-8 h-8 hover:text-primary/90 transition" />
                 </Link>
                 <Link
+                  href="https://linkedin.com/company/laborat%C3%B3rio-f%C3%A1brica-de-software/posts/?feedView=all"
                   target="_blank"
+                  aria-label="LinkedIn"
                   rel="noreferrer"
-                  href="https://www.linkedin.com/company/laborat%C3%B3rio-f%C3%A1brica-de-software/posts/?feedView=all"
                 >
                   <FaLinkedin className="text-white w-8 h-8 hover:text-primary/90 transition" />
                 </Link>

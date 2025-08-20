@@ -22,6 +22,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       image={project.images?.[0] || "/LogoLFSDark.png"}
       imageContent={
         <Tag
+          aria-label={`Status do projeto: ${project.status}`}
           className="absolute top-2 right-2 py-1 px-4 shadow"
           type={
             project.status === "not-started"

@@ -26,8 +26,8 @@ export function HiringSection() {
       <Image
         src="/hiring.svg"
         alt="Ilustração representando oportunidades de recrutamento no Laboratório Fábrica de Software"
-        width={0}
-        height={0}
+        width={600}
+        height={400}
         sizes="100vw"
         className="lg:h-110 w-full"
         loading="lazy"

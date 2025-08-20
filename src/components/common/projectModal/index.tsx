@@ -59,6 +59,7 @@ export function ProjectModal({ project }: ProjectModalProps) {
             <Card
               contentPadding={true}
               className="border-none pb-3 w-full"
+              aria-label={`Status do projeto: ${project.status}`}
               image={project.images?.[0] || "/LogoLFSDark.png"}
               imageContent={
                 <Tag
