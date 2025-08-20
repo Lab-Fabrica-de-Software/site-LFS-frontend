@@ -1,7 +1,7 @@
 export const navLinks = [
     {
         label: "Início",
-        href: "/",
+        href: "#home",
     },
     {
         label: "Sobre Nós",

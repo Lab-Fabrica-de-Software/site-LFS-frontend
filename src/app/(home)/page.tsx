@@ -7,7 +7,7 @@ import { HiringSection } from "@/sections/hiringSection";
 
 export default async function Page() {
   return (
-    <main>
+    <main className="space-y-4">
       <HeroSection />
       <LogoMarquee items={partners} />
       <AboutSection />

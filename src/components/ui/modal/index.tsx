@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface ModalOverlayProps {
@@ -19,6 +19,15 @@ export function ModalOverlay({
       onDimiss();
     }
   };
+
+  useEffect(() => {
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalStyle;
+    };
+  }, []);
 
   const overlayClasses = twMerge(
     "fixed fade-in-zoom-in max-h-full inset-0 z-50 bg-black/60",

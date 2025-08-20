@@ -44,7 +44,7 @@ const fetchCollaborators = async (repoName: string): Promise<Member[]> => {
   }
 };
 
-export const fetchPortfolioProjects = async (): Promise<PortfolioProject[]> => {
+export const fetchPortfolioProjects = async (): Promise<{ data: PortfolioProject[]; error: boolean }> => {
   try {
     const reposRes = await axios.get(
       "https://api.github.com/search/repositories?q=org:Lab-Fabrica-de-Software+topic:portfolio",
@@ -79,9 +79,9 @@ export const fetchPortfolioProjects = async (): Promise<PortfolioProject[]> => {
       })
     );
 
-    return projects;
+    return { data: projects, error: false };
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
-    return [];
+    return { data: [], error: true };
   }
 };

@@ -35,7 +35,7 @@ export function HeroSection() {
               Estou interessado
               <ArrowDown
                 size={20}
-                className="transition-all group-hover:-translate-y-[1.4px]"
+                className="transition-all group-hover:-translate-y-0.5"
               />
             </Button>
           </div>

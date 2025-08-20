@@ -107,7 +107,7 @@ export function ProjectModal({ project }: ProjectModalProps) {
                 )}
 
                 <div className="grid gap-2 mt-3">
-                  <h2 className="font-semibold">Linguagens utilizadas</h2>
+                  <h2 className="font-semibold">Tecnologias utilizadas</h2>
                   <div className="flex flex-row gap-2 flex-wrap">
                     {project.stacks?.map((stack, index) => (
                       <Tag

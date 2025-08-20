@@ -7,12 +7,14 @@ interface ProjectsSectionProps {
   projects: PortfolioProject[];
   limit?: number;
   showViewAllButton?: boolean;
+  error?: boolean
 }
 
 export default function ProjectsSection({
   projects,
   limit = 4,
   showViewAllButton = true,
+  error
 }: ProjectsSectionProps) {
   const displayedProjects = projects.slice(0, limit);
 
@@ -28,7 +30,7 @@ export default function ProjectsSection({
         </h2>
 
         {showViewAllButton && projects.length > limit && (
-          <RedirectButton href="/projects"  className="hidden md:block">
+          <RedirectButton href="/projects" className="hidden md:block">
             Ver mais
           </RedirectButton>
         )}
@@ -47,8 +49,18 @@ export default function ProjectsSection({
           </div>
         </div>
       ) : (
-        <div className="flex w-full items-center mt-3">
-          <span className="opacity-70">Erro ao localizar projetos</span>
+        <div className="flex w-full items-center justify-center flex-col py-20 mt-3 bg-card-background">
+          {error ? (
+            <>
+              <span className="opacity-70 font-semibold">Não foi possível carregar os projetoss</span>
+              <span className="opacity-70">Tente novamente.</span>
+            </>
+          ) : (
+            <>
+              <span className="opacity-70 font-semibold">Não há projetos disponíveis no momento.</span>
+              <span className="opacity-70">Volte mais tarde.</span>
+            </>
+          )}
         </div>
       )}
       {showViewAllButton && projects.length > limit && (
