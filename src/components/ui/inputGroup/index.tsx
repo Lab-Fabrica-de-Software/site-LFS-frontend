@@ -43,7 +43,8 @@ export function InputGroup({
   );
 }
 
-const FieldStyles = "bg-transparent placeholder-gray-500 transition-all outline-0 flex-1 text-gray-300";
+const FieldStyles =
+  "bg-transparent placeholder-gray-500 transition-all outline-0 flex-1 text-gray-300";
 
 export function InputField(props: ComponentProps<"input">) {
   return <input className={FieldStyles} {...props} />;
@@ -58,13 +59,17 @@ export function TextAreaField(props: ComponentProps<"textarea">) {
   );
 }
 
-export function SelectField({ children, ...props }: ComponentProps<"select">) {
+export function SelectField({
+  className,
+  children,
+  ...props
+}: ComponentProps<"select">) {
+  const baseClasses =
+    "appearance-none w-full outline-0 mr-8 cursor-pointer text-xs md:text-sm text-gray-300";
+  const classes = twMerge(baseClasses, className);
   return (
     <div className="relative flex-1">
-      <select
-        className="appearance-none w-full outline-0 mr-8 cursor-pointer text-gray-300 text-xs"
-        {...props}
-      >
+      <select className={classes} {...props}>
         {children}
       </select>
 

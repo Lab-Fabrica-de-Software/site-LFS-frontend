@@ -26,6 +26,7 @@ export function FormSection({ areaInteresse, contatos }: FormSectionProps) {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<Inputs>();
 
@@ -35,31 +36,35 @@ export function FormSection({ areaInteresse, contatos }: FormSectionProps) {
   };
 
   return (
-    <div className="bg-card-background flex flex-col lg:flex-row p-10 gap-5 lg:gap-15 w-full">
+    <div className="bg-card-background flex flex-col lg:flex-row p-10 justify-between container">
       {/*Coluna da direita*/}
-      <div className="flex-1 flex flex-col space-y-2 text-start">
-        <h2 className="text-2xl md:text-3xl font-semibold">
-          Está interessado? Entre em contato conosco.
-        </h2>
-        <p className="text-foreground/70">
-          Preencha o formulário e entraremos em contato o mais rápido possível.
+      <div className=" flex flex-1 flex-col space-y-5 text-start">
+        <div className="text-2xl md:text-3xl font-semibold">
+          <h2>Está interessado?</h2>
+          <h2>Entre em contato conosco.</h2>
+        </div>
+        <p className="text-foreground/70 text-md">
+          Preencha o formulário, que entraremos em contato o mais rápido
+          possível.
         </p>
 
         <h3 className="text-xl font-semibold">Informações de contato</h3>
 
         {contatos.map((item, index) => (
-          <Link
-            key={index}
-            href={item.href}
-            className="hover:text-primary flex items-center gap-2 py-1.5"
-          >
-            {item.icon &&
-              React.createElement(item.icon, {
-                size: 20,
-                className: "w-7 h-7",
-              })}
-            <span className="text-primary"> {item.title}</span>
-          </Link>
+          <div>
+            <Link
+              key={index}
+              href={item.href}
+              className="hover:text-primary inline-flex text-lg items-center gap-2 py-2"
+            >
+              {item.icon &&
+                React.createElement(item.icon, {
+                  size: 20,
+                  className: "w-7 h-7",
+                })}
+              <span className="text-primary"> {item.title}</span>
+            </Link>
+          </div>
         ))}
       </div>
 
@@ -117,12 +122,17 @@ export function FormSection({ areaInteresse, contatos }: FormSectionProps) {
 
             <InputGroup inputLabel="Área de interesse" invalid={errors.area}>
               <SelectField
+                className={
+                  watch("area") === "" ? "text-gray-500" : "text-gray-300"
+                }
                 defaultValue=""
                 {...register("area", {
                   required: "Área de interesse é obrigatória",
                 })}
               >
-                <option value="">Selecione uma área de interesse</option>
+                <option className="text-gray-500 text-sm" value="">
+                  Selecione uma área de interesse
+                </option>
                 {areaInteresse.map((item) => (
                   <option
                     className="text-gray-300 text-sm"
@@ -136,7 +146,7 @@ export function FormSection({ areaInteresse, contatos }: FormSectionProps) {
             </InputGroup>
           </div>
         </div>
-        
+
         <div className="mt-5">
           <InputGroup inputLabel="Sobre você" invalid={errors.sobre}>
             <TextAreaField
