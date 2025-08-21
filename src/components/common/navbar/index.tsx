@@ -15,6 +15,15 @@ interface NavbarProps extends ComponentProps<"nav"> {
 export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id.replace("#", ""));
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
+
+
   return (
     <header
       className="max-w-7xl z-50 fixed top-0 w-full left-0 right-0 lg:top-4 mx-auto lg:px-6"
@@ -38,13 +47,22 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
           <ul className="flex space-x-6">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <Link
-                  href={link.href}
-                  aria-label={`Navege para: ${link.label}`}
-                  className="hover:text-primary/90 text-lg transition"
-                >
-                  {link.label}
-                </Link>
+                {link.href[0] === "#" ? (
+                  <button
+                    onClick={() => scrollToSection(link.href)}
+                    className="hover:text-primary/90 text-lg transition cursor-pointer"
+                  >
+                    {link.label}
+                  </button>
+                ) : (
+                  <Link
+                    href={link.href}
+                    aria-label={`Navege para: ${link.label}`}
+                    className="hover:text-primary/90 text-lg transition"
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -87,26 +105,36 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
       </nav>
 
       <div
-        className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-transform duration-500 ease-in-out border-b bg-card/95 backdrop-blur-md shadow-lg rounded-b-lg ${
-          isOpen ? "translate-y-15" : "-translate-y-full"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-transform duration-500 ease-in-out border-b bg-card/95 backdrop-blur-md shadow-lg rounded-b-lg ${isOpen ? "translate-y-15" : "-translate-y-full"
+          }`}
       >
         <div className="p-4">
           <ul className="flex flex-col space-y-4 text-white text-lg">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <Link
-                  href={link.href}
-                  aria-label={`Navege para: ${link.label}`}
-                  className="hover:text-primary/90 text-sm transition"
-                >
-                  {link.label}
-                </Link>
+                {link.href[0] === "#" ? (
+                  <button
+                    onClick={() => scrollToSection(link.href)}
+                    className="hover:text-primary/90 text-sm transition cursor-pointer"
+                  >
+                    {link.label}
+                  </button>
+                ) : (
+                  <Link
+                    href={link.href}
+                    aria-label={`Navege para: ${link.label}`}
+                    className="hover:text-primary/90 text-sm transition"
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
+
             <Link href="/">
               <Button className="py-1 h-8 text-sm">Ingresse Já</Button>
             </Link>
+            
             {!socialIconsVisible && (
               <div className="flex space-x-3 pt-2">
                 <Link
@@ -133,3 +161,4 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
     </header>
   );
 }
+
