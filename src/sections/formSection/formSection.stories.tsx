@@ -22,7 +22,7 @@ export const Default: Story = {
     { id: "1", text: "Option1" },
     { id: "2", text: "Option2" },
   ],
-  contato: [
+  contatos: [
      {
       title: "labfabricadesoftware.recruit@gmail.com",
       icon: Mail,
