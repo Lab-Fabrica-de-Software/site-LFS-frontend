@@ -18,7 +18,8 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id.replace("#", ""));
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const isMobile = window.innerWidth <= 768;
+      section.scrollIntoView({ behavior: "smooth", block: isMobile ? "start" : "center" });
       setIsOpen(false);
     }
   };
