@@ -6,7 +6,7 @@ const meta: Meta<typeof ProjectsSection> = {
 
   component: ProjectsSection,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
   tags: ['autodocs'],
 };

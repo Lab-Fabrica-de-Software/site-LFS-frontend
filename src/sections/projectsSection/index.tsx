@@ -24,7 +24,7 @@ export default function ProjectsSection({
       aria-labelledby="projects-title"
       className="container pt-14 md:pt-18 md:pb-15 mx-auto w-full"
     >
-      <header className="w-full">
+      <header className="w-full flex flex-row justify-between items-center">
         <h2 id="projects-title" className="text-3xl md:text-4xl font-semibold">
           Veja alguns dos nossos projetos
         </h2>

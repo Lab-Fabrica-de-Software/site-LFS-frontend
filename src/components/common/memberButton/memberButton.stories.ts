@@ -13,7 +13,7 @@ const meta: Meta<typeof MemberButton> = {
 export default meta;
 type Story = StoryObj<typeof MemberButton>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     member: {
       id: "1",

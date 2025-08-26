@@ -7,14 +7,13 @@ const meta: Meta<typeof Navbar> = {
   parameters: {
     layout: 'fullscreen',
   },
-  tags: ['autodocs'],
 };
 
 export default meta;
 type Story = StoryObj<typeof Navbar>;
 
 
-export const ComWrapper: Story = {
+export const Default: Story = {
   args: {
   },
 };
