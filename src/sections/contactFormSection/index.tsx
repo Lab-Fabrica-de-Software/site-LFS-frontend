@@ -176,7 +176,7 @@ export function ContactFormSection({ onSubmit }: ContactFormSectionProps) {
           <InputGroup
             inputIcon={<FaLinkedin className="w-5 h-5" />}
             inputLabel="LinkedIn"
-            invalid={errors.name}
+            invalid={errors.linkedin}
           >
             <InputField
               placeholder="Insira a url do seu LinkedIn"
