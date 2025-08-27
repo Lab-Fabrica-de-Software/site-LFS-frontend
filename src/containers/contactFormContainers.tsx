@@ -1,7 +1,7 @@
 import {
   ContactFormSection,
   ContactFormInputsProps,
-} from "@/sections/formSection";
+} from "@/sections/contactFormSection";
 import React from "react";
 import { SubmitHandler } from "react-hook-form";
 

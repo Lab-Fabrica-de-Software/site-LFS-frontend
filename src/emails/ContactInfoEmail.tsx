@@ -1,5 +1,5 @@
 // /emails/ContactEmail.tsx
-import { ContactFormInputsProps } from "@/sections/formSection";
+import { ContactFormInputsProps } from "@/sections/contactFormSection";
 import { Html, Body, Heading, Text, Tailwind } from "@react-email/components";
 
 interface ContactInfoEmailProps {

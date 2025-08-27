@@ -14,7 +14,7 @@ const meta: Meta<typeof ProjectsSection> = {
 export default meta;
 type Story = StoryObj<typeof ProjectsSection>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     projects: [
       {
