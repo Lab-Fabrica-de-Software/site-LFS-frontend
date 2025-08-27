@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/inputGroup";
 import { contactLinks, interestAreas } from "@/constants/formConstant";
 
-export interface InputsProps {
+export interface ContactFormInputsProps {
   name: string;
   email: string;
   institution: string;
@@ -22,17 +22,17 @@ export interface InputsProps {
   about: string;
 }
 
-interface FormSectionProps {
-  onSubmit: SubmitHandler<InputsProps>;
+interface ContactFormSectionProps {
+  onSubmit: SubmitHandler<ContactFormInputsProps>;
 }
 
-export function FormSection({ onSubmit }: FormSectionProps) {
+export function ContactFormSection({ onSubmit }: ContactFormSectionProps) {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<InputsProps>();
+  } = useForm<ContactFormInputsProps>();
 
   return (
     <section className="bg-card-background container py-12 lg:py-20">
