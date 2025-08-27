@@ -133,7 +133,7 @@ export function ContactFormSection({ onSubmit }: ContactFormSectionProps) {
                 }
                 defaultValue=""
                 {...register("institutionArea", {
-                  required: "Área de interesse é obrigatória",
+                  required: "Instituição de ensino é obrigatória",
                 })}
               >
                 <option value="" className="text-muted-foreground text-sm">
@@ -181,7 +181,7 @@ export function ContactFormSection({ onSubmit }: ContactFormSectionProps) {
             <InputField
               placeholder="Insira a url do seu LinkedIn"
               type="url"
-              {...register("linkedin", { required: "Nome é obrigatório" })}
+              {...register("linkedin", { required: "LinkedIn é obrigatório" })}
             />
           </InputGroup>
 
