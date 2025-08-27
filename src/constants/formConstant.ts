@@ -2,7 +2,6 @@ import { Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 // You must import the icon to use them in contact links
 
-
 export const contactLinks = [
   {
     title: "labfabricadesoftware.recruit@gmail.com",
@@ -24,4 +23,9 @@ export const contactLinks = [
 export const interestAreas = [
   { id: "1", text: "Option1" },
   { id: "2", text: "Option2" },
+];
+
+export const institutionArea = [
+  { id: "1", text: "FATEC Itu" },
+  { id: "2", text: "FATEC Sorocaba" },
 ];

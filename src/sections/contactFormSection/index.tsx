@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Building, Mail, User } from "lucide-react";
+import { Mail, User } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -12,12 +12,18 @@ import {
   SelectField,
   TextAreaField,
 } from "@/components/ui/inputGroup";
-import { contactLinks, interestAreas } from "@/constants/formConstant";
+import {
+  contactLinks,
+  institutionArea,
+  interestAreas,
+} from "@/constants/formConstant";
+import { FaLinkedin } from "react-icons/fa";
 
 export interface ContactFormInputsProps {
   name: string;
   email: string;
-  institution: string;
+  linkedin: string;
+  institutionArea: string;
   interestArea: string;
   about: string;
 }
@@ -39,7 +45,7 @@ export function ContactFormSection({ onSubmit }: ContactFormSectionProps) {
       <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-12 px-2 md:px-8 overflow-hidden">
         {/* Informações de contato */}
         <div className="flex-1 flex flex-col space-y-5">
-          <header className="space-y-2">
+          <header>
             <h2 className="text-2xl md:text-4xl font-bold leading-snug text-primary">
               Está interessado?
             </h2>
@@ -62,14 +68,16 @@ export function ContactFormSection({ onSubmit }: ContactFormSectionProps) {
               <Link
                 key={index}
                 href={item.href}
-                className="flex flex-row justify-start items-center gap-3 text-sm hover:text-primary transition-colors"
+                className="flex flex-row justify-start items-center gap-2 text-sm hover:text-primary transition-colors"
               >
                 {item.icon &&
                   React.createElement(item.icon, {
                     size: 20,
                     className: "w-6 h-6 text-primary",
                   })}
-                <span>{item.title}</span>
+                <span className="break-words whitespace-normal flex-1">
+                  {item.title}
+                </span>
               </Link>
             ))}
           </div>
@@ -78,9 +86,9 @@ export function ContactFormSection({ onSubmit }: ContactFormSectionProps) {
         {/* Formulário */}
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex-1 flex flex-col space-y-6 w-full"
+          className="flex-1 flex flex-col space-y-4 w-full"
         >
-          <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex flex-col md:flex-row gap-3">
             <InputGroup
               inputIcon={<User className="w-5 h-5" />}
               inputLabel="Nome"
@@ -112,21 +120,32 @@ export function ContactFormSection({ onSubmit }: ContactFormSectionProps) {
             </InputGroup>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex flex-col md:flex-row gap-3">
             <InputGroup
-              inputIcon={<Building className="w-5 h-5" />}
               inputLabel="Instituição"
-              invalid={errors.institution}
+              invalid={errors.institutionArea}
             >
-              <InputField
-                placeholder="Ex: Fatec Itu"
-                type="text"
-                {...register("institution", {
-                  required: "Instituição é obrigatória",
+              <SelectField
+                className={
+                  watch("institutionArea") === ""
+                    ? "text-muted-foreground"
+                    : "text-foreground"
+                }
+                defaultValue=""
+                {...register("institutionArea", {
+                  required: "Área de interesse é obrigatória",
                 })}
-              />
+              >
+                <option value="" className="text-muted-foreground text-sm">
+                  Selecione
+                </option>
+                {institutionArea.map((item) => (
+                  <option key={item.id} value={item.text} className="text-sm">
+                    {item.text}
+                  </option>
+                ))}
+              </SelectField>
             </InputGroup>
-
             <InputGroup
               inputLabel="Área de interesse"
               invalid={errors.interestArea}
@@ -143,7 +162,7 @@ export function ContactFormSection({ onSubmit }: ContactFormSectionProps) {
                 })}
               >
                 <option value="" className="text-muted-foreground text-sm">
-                  Selecione uma área de interesse
+                  Selecione
                 </option>
                 {interestAreas.map((item) => (
                   <option key={item.id} value={item.text} className="text-sm">
@@ -153,6 +172,18 @@ export function ContactFormSection({ onSubmit }: ContactFormSectionProps) {
               </SelectField>
             </InputGroup>
           </div>
+
+          <InputGroup
+            inputIcon={<FaLinkedin className="w-5 h-5" />}
+            inputLabel="LinkedIn"
+            invalid={errors.name}
+          >
+            <InputField
+              placeholder="Insira a url do seu LinkedIn"
+              type="url"
+              {...register("linkedin", { required: "Nome é obrigatório" })}
+            />
+          </InputGroup>
 
           <InputGroup inputLabel="Sobre você" invalid={errors.about}>
             <TextAreaField
@@ -164,11 +195,15 @@ export function ContactFormSection({ onSubmit }: ContactFormSectionProps) {
             />
           </InputGroup>
 
-          <Button type="submit" variant="primary" className="w-full justify-center md:w-auto">
+          <Button
+            type="submit"
+            variant="primary"
+            className="w-full justify-center md:w-auto"
+          >
             Enviar
           </Button>
         </form>
       </div>
-    </section >
+    </section>
   );
 }
