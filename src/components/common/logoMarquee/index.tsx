@@ -31,9 +31,9 @@ export default function LogoMarquee({ items }: LogoMarqueeProps) {
 
   return (
     <div className="flex container flex-col items-center justify-center pt-20 md:pt-32 space-y-3 w-full">
-      <h3 className="text-md text-center md:text-xl text-foreground/70">
+      <h1 className="text-md text-center md:text-xl text-foreground/70">
         Algumas das <span className="text-primary font-medium">{items.length -1}+</span> empresas e instituições parceiras
-      </h3>
+      </h1>
       <div ref={containerRef} className="w-full overflow-hidden p-4">
         {scroll ? (
           <Marquee

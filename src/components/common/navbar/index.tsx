@@ -150,32 +150,31 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
                 )}
               </li>
             ))}
-
-            <Link href="/">
-              <Button className="py-1 h-8 text-sm">Ingresse Já</Button>
-            </Link>
-
-            {!socialIconsVisible && (
-              <div className="flex space-x-3 pt-2">
-                <Link
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Discord"
-                  href="https://discord.com/invite/caPTw4cSAr"
-                >
-                  <FaDiscord className="text-white w-8 h-8 hover:text-primary/90 transition" />
-                </Link>
-                <Link
-                  href="https://linkedin.com/company/laborat%C3%B3rio-f%C3%A1brica-de-software/posts/?feedView=all"
-                  target="_blank"
-                  aria-label="LinkedIn"
-                  rel="noreferrer"
-                >
-                  <FaLinkedin className="text-white w-8 h-8 hover:text-primary/90 transition" />
-                </Link>
-              </div>
-            )}
           </ul>
+          <Link href="/">
+            <Button className="py-1 h-8 text-sm">Ingresse Já</Button>
+          </Link>
+
+          {!socialIconsVisible && (
+            <div className="flex space-x-3 pt-2">
+              <Link
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Discord"
+                href="https://discord.com/invite/caPTw4cSAr"
+              >
+                <FaDiscord className="text-white w-8 h-8 hover:text-primary/90 transition" />
+              </Link>
+              <Link
+                href="https://linkedin.com/company/laborat%C3%B3rio-f%C3%A1brica-de-software/posts/?feedView=all"
+                target="_blank"
+                aria-label="LinkedIn"
+                rel="noreferrer"
+              >
+                <FaLinkedin className="text-white w-8 h-8 hover:text-primary/90 transition" />
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </header>

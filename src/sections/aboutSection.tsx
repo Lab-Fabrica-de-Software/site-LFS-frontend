@@ -4,9 +4,9 @@ export function AboutSection() {
   return (
     <section className="flex container items-center pt-20 flex-col space-y-2" id="about">
       <div className="flex flex-col space-y-2 text-center">
-        <h2 className="text-4xl md:text-5xl font-semibold">
+        <h1 className="text-4xl md:text-5xl font-semibold">
           <span className="text-primary">Quem</span> somos nós?
-        </h2>
+        </h1>
         <p className="text-foreground/70">
           Um pouco sobre quem somos nós, integrantes do Laboratório Fábrica de
           Software e o que é essa iniciativa.
@@ -14,9 +14,9 @@ export function AboutSection() {
       </div>
       <div className="flex flex-col lg:flex-row items-center py-10 justify-between  gap-8">
         <div className="flex order-2 flex-col space-y-4">
-          <h3 className="text-4xl md:text-5xl md:mb-8 font-semibold">
+          <h2 className="text-4xl md:text-5xl md:mb-8 font-semibold">
             Fabricando seu <span className="text-primary">Futuro!</span>
-          </h3>
+          </h2>
           <p className="text-md opacity-80 lg:text-lg">
             O Laboratório Fábrica de Software é onde alunos de diferentes
             instituições vivem a prática do desenvolvimento.

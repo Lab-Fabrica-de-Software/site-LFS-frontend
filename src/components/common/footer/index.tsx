@@ -20,7 +20,7 @@ export default function Footer({ className }: FooterProps) {
         
         <div>
           <Image
-            src="/LogoLFS.png"
+            src="/logoLFS.png"
             alt="Laboratório Fábrica de Software"
             width={112} 
             height={112}
@@ -56,13 +56,13 @@ export default function Footer({ className }: FooterProps) {
           Fábrica de Software LTDA.
         </p>
         <div className="flex gap-4 text-lg">
-          <Link href="#" className="hover:text-primary transition-colors">
+          <Link href="#" aria-label="Acesse nosso Facebook" className="hover:text-primary transition-colors">
             <FaFacebookF />
           </Link>
-          <Link href="#" className="hover:text-primary transition-colors">
+          <Link href="#" aria-label="Acesse nosso Instagram" className="hover:text-primary transition-colors">
             <FaInstagram />
           </Link>
-          <Link href="https://chat.whatsapp.com/HVRjmSdMzMjBAQj8DXPb30" className="hover:text-primary transition-colors">
+          <Link aria-label="Acesse nosso LinkedIn" href="https://chat.whatsapp.com/HVRjmSdMzMjBAQj8DXPb30" className="hover:text-primary transition-colors">
             <FaWhatsapp />
           </Link>
         </div>
