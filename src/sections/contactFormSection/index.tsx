@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/inputGroup";
 import {
   contactLinks,
-  institutionArea,
+  institution,
   interestAreas,
 } from "@/constants/formConstant";
 import { FaLinkedin } from "react-icons/fa";
@@ -23,7 +23,7 @@ export interface ContactFormInputsProps {
   name: string;
   email: string;
   linkedin: string;
-  institutionArea: string;
+  institution: string;
   interestArea: string;
   about: string;
 }
@@ -123,23 +123,23 @@ export function ContactFormSection({ onSubmit }: ContactFormSectionProps) {
           <div className="flex flex-col md:flex-row gap-3">
             <InputGroup
               inputLabel="Instituição"
-              invalid={errors.institutionArea}
+              invalid={errors.institution}
             >
               <SelectField
                 className={
-                  watch("institutionArea") === ""
+                  watch("institution") === ""
                     ? "text-muted-foreground"
                     : "text-foreground"
                 }
                 defaultValue=""
-                {...register("institutionArea", {
+                {...register("institution", {
                   required: "Instituição de ensino é obrigatória",
                 })}
               >
                 <option value="" className="text-muted-foreground text-sm">
                   Selecione
                 </option>
-                {institutionArea.map((item) => (
+                {institution.map((item) => (
                   <option key={item.id} value={item.text} className="text-sm">
                     {item.text}
                   </option>

@@ -25,7 +25,7 @@ export const interestAreas = [
   { id: "2", text: "Option2" },
 ];
 
-export const institutionArea = [
+export const institution = [
   { id: "1", text: "FATEC Itu" },
   { id: "2", text: "FATEC Sorocaba" },
 ];
