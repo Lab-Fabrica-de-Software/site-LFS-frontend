@@ -23,7 +23,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-11 md:leading-none"
+            className="text-4xl md:text-5xl text-roboto lg:text-6xl xl:text-7xl font-bold text-white leading-11 md:leading-none"
           >
             O primeiro passo para novos{" "}
             <span className="block md:mt-2">desenvolvedores se tornarem</span>
