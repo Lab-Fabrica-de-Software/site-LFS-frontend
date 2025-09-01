@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
@@ -14,8 +15,16 @@ export function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
         aria-hidden="true"
-        className="absolute inset-0 bg-[url('/hero-background.png')] bg-cover bg-center filter saturate-0 brightness-70"
-      />
+        className="absolute inset-0 filter saturate-0 brightness-70"
+      >
+        <Image
+          src="/hero-background.png" 
+          alt="Hero Image"
+          fill
+          className="object-cover object-center"
+          priority 
+        />
+      </motion.div>
 
       <div className="container mx-auto pt-30 pb-20 md:p-0 relative z-10">
         <div className="max-w-5xl mx-auto md:text-center">
@@ -63,10 +72,11 @@ export function HeroSection() {
       </div>
 
       <motion.div
-      initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2 }}
-      className="absolute hidden md:block bottom-0 w-full overflow-hidden leading-none">
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2 }}
+        className="absolute hidden md:block bottom-0 w-full overflow-hidden leading-none"
+      >
         <svg
           role="img"
           aria-hidden="true"

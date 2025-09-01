@@ -11,7 +11,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Acelere sua jornada como desenvolvedor",
+  title: "Acelere sua jornada como desenvolvedor | Laboratório Fábrica de Software",
   description:
     "A melhor forma de aprender é praticando. Construa sua experiência com a gente.",
 };
