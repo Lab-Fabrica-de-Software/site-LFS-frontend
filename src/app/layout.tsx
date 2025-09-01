@@ -11,9 +11,46 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Acelere sua jornada como desenvolvedor | Laboratório Fábrica de Software",
+  metadataBase: new URL("https://labfabricadesoftware.com"),
+  title:
+    "Acelere sua jornada como desenvolvedor | Laboratório Fábrica de Software",
   description:
-    "A melhor forma de aprender é praticando. Construa sua experiência com a gente.",
+    "A melhor forma de aprender é praticando. E aqui no Laboratório Fábrica de Software, você poderá construir sua experiência conosco e se preparar para o mercado de trabalho. #somosfabrica",
+  keywords: [
+    "Fatec Itu",
+    "Fatec Sorocaba",
+    "Estágio Fatec Itu",
+    "Itu Estágio",
+    "Senai Sorocaba",
+    "Sorocaba",
+    "Itu",
+    "Estágios",
+    "Desenvolvimento",
+    "Programação",
+  ],
+  robots: "index, follow",
+  openGraph: {
+    title:
+      "Acelere sua jornada como desenvolvedor | Laboratório Fábrica de Software",
+    description:
+      "A melhor forma de aprender é praticando. E aqui no Laboratório Fábrica de Software, você poderá construir sua experiência conosco e se preparar para o mercado de trabalho. #somosfabrica",
+    url: "https://labfabricadesoftware.com",
+    siteName: "Laboratório Fábrica de Software",
+    images: [
+      {
+        url: "/logoLFS.png",
+        width: 1200,
+        height: 630,
+        alt: "Laboratório Fábrica de Software",
+      },
+    ],
+    type: "website",
+  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
