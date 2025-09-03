@@ -19,15 +19,15 @@ export default function WelcomeEmail({ data }: WelcomeEmailProps) {
           <div>
                 <div className="flex flex-row gap-1">
                     <Text className="m-0 font-medium text-[#56E873]">Data do onboarding: </Text>
-                    <Text className="m-0 font-normal">Teste;</Text>
+                    <Text className="m-0 font-normal">{data?.onboardingDate};</Text>
                 </div>
                 <div className="flex flex-row gap-1">
                     <Text className="m-0 font-medium text-[#56E873]">Horário: </Text>
-                    <Text className="m-0 font-normal">Teste;</Text>
+                    <Text className="m-0 font-normal">{data?.onboardingTime};</Text>
                 </div>
                 <div className="flex flex-row gap-1">
                     <Text className="m-0 font-medium text-[#56E873]">Local: </Text>
-                    <Text className="m-0 font-normal">Teste;</Text>
+                    <Text className="m-0 font-normal">{data?.onboardingPlace}.</Text>
                 </div>
             </div>
         <div className="mt-3">
