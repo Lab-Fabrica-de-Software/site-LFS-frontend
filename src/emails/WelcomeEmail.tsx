@@ -1,9 +1,9 @@
 import { Html, Body, Heading, Text, Tailwind } from "@react-email/components";
 
 interface WelcomeEmailProps {
-  onboardingPlace: String;
-  onboardingTime: String;
-  onboardingDate: String;
+  onboardingPlace: string;
+  onboardingTime: string;
+  onboardingDate: string;
 }
 
 export default function WelcomeEmail( { onboardingPlace, onboardingTime, onboardingDate }: WelcomeEmailProps) {
@@ -11,9 +11,6 @@ export default function WelcomeEmail( { onboardingPlace, onboardingTime, onboard
     <Html>
       <Tailwind>
         <Body className="font-sans py-2 px-4">
-          <Heading>
-            
-          </Heading>
           <Text>É com grande satisfação que damos as boas-vindas ao <span className="text-[#56E873]">Laborátorio Fábrica de Software!</span> Estamos muito felizes por contar com você.</Text>
           <Text className="font-medium">Seu processo de onboarding já está agendado:</Text>
           <div>
