@@ -1,75 +1,102 @@
-import { ContactInfoEmailProps } from "../types/email";
+import { ContactFormInputsProps } from "@/sections/contactFormSection";
 import {
   Html,
   Head,
   Body,
   Tailwind,
-  Container,
   Section,
   Text,
+  Img,
 } from "@react-email/components";
+import { ReactNode } from "react";
 
-export default function EmailTemplateEmail({ data }: ContactInfoEmailProps) {
+interface ContactInfoEmailProps {
+  data: ContactFormInputsProps;
+  children?: ReactNode; // 👈 adiciona suporte para conteúdo dinâmico
+}
+
+export default function EmailTemplateEmail({
+  data,
+  children,
+}: ContactInfoEmailProps) {
   return (
     <Html>
       <Head />
       <Tailwind>
-        <Body className="font-sans m-0 bg-[#0B150C]">
+        {/* 👇 aplica branco como cor padrão para todos os textos */}
+        <Body className="font-sans m-0 bg-[#0B150C] text-[#FFFFFF]">
+          <Img
+            src="https://firebasestorage.googleapis.com/v0/b/godress-28aeb.appspot.com/o/LFS%2FLogo.png?alt=media&token=f3931916-360e-4c06-89d1-e22cb37af5b9"
+            alt="Banner"
+            width="100%"
+            height="200"
+            className="object-cover"
+          />
 
+          {/* saudação padrão */}
+          <Text className="text-left p-4 text-3xl">
+            <strong>Olá, </strong>
+            <strong className="text-[#56E873]">{data?.name}</strong>
+          </Text>
 
-         
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 800 99"
-            preserveAspectRatio="none"
+          {/* 👇 aqui entra o conteúdo específico de cada email */}
+          <Section className="p-4">{children}</Section>
+
+          {/* rodapé padrão */}
+          <Text className="text-left p-4">
+            Atenciosamente,
+            <br />
+            <strong className="text-[#56E873]">
+              Equipe LFS – Laboratório Fábrica de Software
+            </strong>
+          </Text>
+
+          <Section
             style={{
-              width: "100%",
-              height: "80px",
-              display: "block",
-              transform: "rotate(180deg)",
+              borderTop: "1px solid #56E873",
+              borderBottom: "1px solid #56E873",
+              padding: "16px",
             }}
           >
-            <path
-              d="M0 -6.10352e-05C52.5328 29.3329 598.626 99.5982 800 58.1892V76.8767V98.8611C487.385 78.1243 312.615 67.3138 0 98.8611V-6.10352e-05Z"
-              fill="#56E873"
-            />
-          </svg>
-          {/* conteúdo fica aqui ok? */}
-          <Text className="text-left p-4 text-3xl">
-            <strong className="text-[#FFFFFF]">Olá, </strong>
-            <strong className="text-[#56E873]">{data?.name}</strong>
-            </Text>
+            <table
+              width="100%"
+              cellPadding={0}
+              cellSpacing={0}
+              style={{ borderCollapse: "collapse" }}
+            >
+              <tbody>
+                <tr>
+                  {/* Coluna da logo */}
+                  <td width="60" valign="middle">
+                    <Img
+                      src="https://firebasestorage.googleapis.com/v0/b/godress-28aeb.appspot.com/o/LFS%2Flogo%20vetor.png?alt=media&token=169f2f64-4c30-4fd6-9005-33b6bf68ea6c"
+                      alt="Logo LFS"
+                      width={40}
+                      height={40}
+                      style={{ display: "block", marginLeft: "10px" }}
+                    />
+                  </td>
 
-
-
-            <Text className="text-left p-4 ">
-            <span className="text-[#FFFFFF]">Atenciosamente,</span>
-            <br />
-            <strong className="text-[#56E873]">Equipe LFS – Laboratório Fábrica de Software</strong>
-
-            </Text>
-          
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 800 99"
-            preserveAspectRatio="none"
-            style={{ width: "100%", height: "80px", display: "block" }}
-          >
-            <path
-              d="M0 -6.10352e-05C52.5328 29.3329 598.626 99.5982 800 58.1892V76.8767V98.8611C487.385 78.1243 312.615 67.3138 0 98.8611V-6.10352e-05Z"
-              fill="#56E873"
-            />
-          </svg>
-
-          <Section>
-            <Container>
-              <Text className="text-center">
-                <strong className="text-[#FFFFFF]">Copyright ©2025 LFS inc.</strong>{" "}
-                <span className="text-[#56E873]">
-                  Todos direitos reservados Laboratório Fábrica de Software
-                </span>
-              </Text>
-            </Container>
+                  {/* Coluna do texto */}
+                  <td valign="middle" style={{ textAlign: "center" }}>
+                    <Text
+                      className="text-center"
+                      style={{
+                        margin: 0,
+                        fontSize: "12px",
+                        lineHeight: "16px",
+                      }}
+                    >
+                      <strong>Copyright ©2025 LFS inc.</strong>{" "}
+                      <span style={{ color: "#56E873" }}>
+                        Todos direitos reservados Laboratório Fábrica de
+                        Software
+                      </span>
+                    </Text>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </Section>
         </Body>
       </Tailwind>
