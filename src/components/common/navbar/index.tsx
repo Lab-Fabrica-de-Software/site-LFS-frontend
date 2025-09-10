@@ -128,8 +128,8 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
           isOpen ? "translate-y-15" : "-translate-y-full"
         }`}
       >
-        <div className="p-4">
-          <ul className="flex flex-col space-y-4 text-white text-lg">
+        <div className="p-4 space-y-3">
+          <ul className="flex flex-col  space-y-2 text-white text-lg">
             {navLinks.map((link, index) => (
               <li key={index}>
                 {link.href[0] === "#" ? (
@@ -151,12 +151,12 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
               </li>
             ))}
           </ul>
-          <Link href="/">
+          <Link href="#">
             <Button className="py-1 h-8 text-sm">Ingresse Já</Button>
           </Link>
 
           {!socialIconsVisible && (
-            <div className="flex space-x-3 pt-2">
+            <div className="flex space-x-3 pt-3">
               <Link
                 target="_blank"
                 rel="noreferrer"
