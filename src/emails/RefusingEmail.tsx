@@ -1,7 +1,5 @@
 import { Html, Body, Text, Tailwind } from "@react-email/components";
 
-
-
 export default function RefusingEmail() {
   return (
     <Html>
