@@ -1,12 +1,7 @@
 import { Html, Body, Heading, Text, Tailwind } from "@react-email/components";
 
-interface WelcomeEmailProps {
-  onboardingPlace: string;
-  onboardingTime: string;
-  onboardingDate: string;
-}
 
-export default function WelcomeEmail( { onboardingPlace, onboardingTime, onboardingDate }: WelcomeEmailProps) {
+export default function WelcomeEmail() {
   return (
     <Html>
       <Tailwind>
@@ -16,15 +11,15 @@ export default function WelcomeEmail( { onboardingPlace, onboardingTime, onboard
           <div>
                 <div className="flex flex-row gap-1">
                     <Text className="m-0 font-medium text-[#56E873]">Data do onboarding: </Text>
-                    <Text className="m-0 font-normal">15/10/2025;</Text>
+                    <Text className="m-0 font-normal">;</Text>
                 </div>
                 <div className="flex flex-row gap-1">
                     <Text className="m-0 font-medium text-[#56E873]">Horário: </Text>
-                    <Text className="m-0 font-normal">09:00;</Text>
+                    <Text className="m-0 font-normal">;</Text>
                 </div>
                 <div className="flex flex-row gap-1">
                     <Text className="m-0 font-medium text-[#56E873]">Local: </Text>
-                    <Text className="m-0 font-normal">45 R. Herculano de Tolêdo Prado.</Text>
+                    <Text className="m-0 font-normal">.</Text>
                 </div>
             </div>
         <div className="mt-3">
