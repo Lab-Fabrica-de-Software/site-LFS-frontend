@@ -8,6 +8,7 @@ import React, { ComponentProps, useState } from "react";
 import { FaDiscord, FaLinkedin } from "react-icons/fa";
 import { navLinks } from "@/constants/navLinks";
 import { Menu } from "lucide-react";
+import { onClickScrollToSection } from "@/lib/onClickScrollToSection";
 
 interface NavbarProps extends ComponentProps<"nav"> {
   socialIconsVisible?: boolean;
@@ -17,15 +18,8 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
-    const section = document.getElementById(id.replace("#", ""));
-    if (section) {
-      const isMobile = window.innerWidth <= 768;
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: isMobile ? "start" : "center",
-      });
-      setIsOpen(false);
-    }
+    onClickScrollToSection(id);
+    setIsOpen(false);
   };
 
   return (
@@ -45,7 +39,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
           transition={{ duration: 1.5 }}
           className="flex items-center space-x-1"
         >
-          <Link href="/">
+          <button onClick={() => scrollToSection("#home")} className="cursor-pointer">
             <Image
               width={100}
               height={100}
@@ -54,7 +48,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
               className="md:w-10 md:h-10 w-9.5"
               priority
             />
-          </Link>
+          </button>
         </motion.div>
 
         <div className="hidden md:flex items-center space-x-4 text-white">
@@ -124,9 +118,8 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
       </motion.nav>
 
       <div
-        className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-transform duration-500 ease-in-out border-b bg-card/95 backdrop-blur-md shadow-lg rounded-b-lg ${
-          isOpen ? "translate-y-15" : "-translate-y-full"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-transform duration-500 ease-in-out border-b bg-card/95 backdrop-blur-md shadow-lg rounded-b-lg ${isOpen ? "translate-y-15" : "-translate-y-full"
+          }`}
       >
         <div className="p-4 space-y-3">
           <ul className="flex flex-col  space-y-2 text-white text-lg">

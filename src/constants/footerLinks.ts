@@ -9,7 +9,7 @@ export const footerLinks = [
   {
     title: "Suporte",
     links: [
-      { label: "Contato", href: "/contato" },
+      { label: "Contato", href: "mailto:lfs@labfabricadesoftware.com" },
     ],
   },
 ];

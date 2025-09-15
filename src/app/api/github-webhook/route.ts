@@ -8,6 +8,10 @@ async function verifySignature(req: Request, secret: string) {
   const hmac = crypto.createHmac("sha256", secret);
   const digest = `sha256=${hmac.update(body).digest("hex")}`;
 
+  if (signature.length !== digest.length) {
+    return null;
+  }
+
   return crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(digest))
     ? body
     : null;

@@ -1,8 +1,11 @@
+"use client"
+
 import { twMerge } from "tailwind-merge";
-import { FaWhatsapp, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaDiscord } from "react-icons/fa";
 import { footerLinks } from "@/constants/footerLinks";
 import Link from "next/link";
 import Image from "next/image";
+import { onClickScrollToSection } from "@/lib/onClickScrollToSection";
 
 interface FooterProps {
   className?: string;
@@ -17,12 +20,12 @@ export default function Footer({ className }: FooterProps) {
   return (
     <footer className={containerStyle}>
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        
+
         <div>
           <Image
             src="/logoLFS.png"
             alt="Laboratório Fábrica de Software"
-            width={112} 
+            width={112}
             height={112}
             className="mb-4"
             priority
@@ -37,14 +40,25 @@ export default function Footer({ className }: FooterProps) {
           <div key={section.title}>
             <h3 className="text-primary font-bold mb-3">{section.title}</h3>
             {section.links.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                aria-label={`Navegar para: ${link.label}`}
-                className="block text-sm mb-1.5 text-muted-foreground hover:text-primary transition-colors duration-200"
-              >
-                {link.label}
-              </Link>
+              link.href[0] === "#" ? (
+                <button
+                  key={link.label}
+                  onClick={() => onClickScrollToSection(link.href)}
+                  className="block text-sm mb-1.5 text-muted-foreground hover:text-primary transition-colors duration-200 cursor-pointer"
+                >
+                  {link.label}
+                </button>
+              ) : (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  aria-label={`Navegar para: ${link.label}`}
+                  className="block text-sm mb-1.5 text-muted-foreground hover:text-primary transition-colors duration-200"
+                >
+                  {link.label}
+                </Link>
+                
+              )
             ))}
           </div>
         ))}
@@ -56,14 +70,11 @@ export default function Footer({ className }: FooterProps) {
           Fábrica de Software LTDA.
         </p>
         <div className="flex gap-4 text-lg">
-          <Link href="#" aria-label="Acesse nosso Facebook" className="hover:text-primary transition-colors">
-            <FaFacebookF />
+          <Link href="https://discord.com/invite/caPTw4cSAr" aria-label="Entre em nosso Discord" className="hover:text-primary transition-colors">
+            <FaDiscord />
           </Link>
-          <Link href="#" aria-label="Acesse nosso Instagram" className="hover:text-primary transition-colors">
-            <FaInstagram />
-          </Link>
-          <Link aria-label="Acesse nosso LinkedIn" href="https://chat.whatsapp.com/HVRjmSdMzMjBAQj8DXPb30" className="hover:text-primary transition-colors">
-            <FaWhatsapp />
+          <Link href="https://linkedin.com/company/laborat%C3%B3rio-f%C3%A1brica-de-software/posts/?feedView=all" aria-label="Acesse nosso Linkedin" className="hover:text-primary transition-colors">
+            <FaLinkedin />
           </Link>
         </div>
       </div>
