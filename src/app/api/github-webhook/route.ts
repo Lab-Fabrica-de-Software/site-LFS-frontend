@@ -1,5 +1,5 @@
 import { revalidatePath } from "next/cache";
-import crypto from "crypto"
+import crypto from "crypto";
 
 async function verifySignature(req: Request, secret: string) {
   const signature = req.headers.get("x-hub-signature-256") || "";
@@ -9,12 +9,21 @@ async function verifySignature(req: Request, secret: string) {
   const digest = `sha256=${hmac.update(body).digest("hex")}`;
 
   if (signature.length !== digest.length) {
+    console.error("❌ Signature length mismatch", { signature, digest });
     return null;
   }
 
-  return crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(digest))
-    ? body
-    : null;
+  const match = crypto.timingSafeEqual(
+    Buffer.from(signature, "utf8"),
+    Buffer.from(digest, "utf8")
+  );
+
+  if (!match) {
+    console.error("❌ Signature mismatch", { signature, digest, body });
+    return null;
+  }
+
+  return body;
 }
 
 export async function POST(req: Request) {

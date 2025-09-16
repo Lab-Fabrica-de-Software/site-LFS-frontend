@@ -8,12 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "email": "email dev --dir src/emails"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@react-email/components": "^0.5.2",
-    "@react-email/tailwind": "^1.2.2",
     "@tailwindcss/postcss": "^4.1.11",
     "axios": "^1.11.0",
     "lucide-react": "^0.525.0",
@@ -32,7 +29,6 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^4.0.1",
     "@eslint/eslintrc": "^3",
-    "@react-email/preview-server": "^4.2.8",
     "@storybook/addon-a11y": "^9.0.16",
     "@storybook/addon-docs": "^9.0.16",
     "@storybook/addon-vitest": "^9.0.16",
@@ -46,7 +42,6 @@
     "eslint-config-next": "15.3.4",
     "eslint-plugin-storybook": "^9.0.16",
     "playwright": "^1.53.2",
-    "react-email": "4.2.8",
     "storybook": "^9.0.16",
     "typescript": "^5",
     "vitest": "^3.2.4"
