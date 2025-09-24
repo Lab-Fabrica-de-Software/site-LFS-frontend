@@ -1,4 +1,4 @@
-import { revalidatePath } from "next/cache";
+import { revalidateTag } from "next/cache";
 import crypto from "crypto";
 
 async function verifySignature(req: Request, secret: string) {
@@ -9,7 +9,7 @@ async function verifySignature(req: Request, secret: string) {
   const digest = `sha256=${hmac.update(body).digest("hex")}`;
 
   if (signature.length !== digest.length) {
-    console.error("❌ Signature length mismatch", { signature, digest });
+    console.error("Signature length mismatch", { signature, digest });
     return null;
   }
 
@@ -19,7 +19,7 @@ async function verifySignature(req: Request, secret: string) {
   );
 
   if (!match) {
-    console.error("❌ Signature mismatch", { signature, digest, body });
+    console.error("Signature mismatch", { signature, digest, body });
     return null;
   }
 
@@ -40,7 +40,7 @@ export async function POST(req: Request) {
   const payload = JSON.parse(body);
 
   if (payload?.repository?.topics?.includes("portfolio")) {
-    revalidatePath("/");
+    revalidateTag('portfolio-projects');
   }
 
   return new Response("OK", { status: 200 });

@@ -2,6 +2,7 @@
 import { PortfolioProject } from "@/types/portfolioProject";
 import { Member } from "@/types/member";
 import axios from "axios";
+import { unstable_cache } from "next/cache";
 
 const token = process.env.GITHUB_TOKEN;
 const headers = {
@@ -44,44 +45,51 @@ const fetchCollaborators = async (repoName: string): Promise<Member[]> => {
   }
 };
 
-export const fetchPortfolioProjects = async (): Promise<{ data: PortfolioProject[]; error: boolean }> => {
-  try {
-    const reposRes = await axios.get(
-      "https://api.github.com/search/repositories?q=org:Lab-Fabrica-de-Software+topic:portfolio",
-      { headers }
-    );
+export const fetchPortfolioProjects = unstable_cache(
+  async (): Promise<{ data: PortfolioProject[]; error: boolean }> => {
+    try {
+      const reposRes = await axios.get(
+        "https://api.github.com/search/repositories?q=org:Lab-Fabrica-de-Software+topic:portfolio",
+        { headers }
+      );
 
-    const repos = reposRes.data.items;
+      const repos = reposRes.data.items;
 
-    const projects = await Promise.all(
-      repos.map(async (repo: any) => {
-        const [infoJson, collaborators] = await Promise.all([
-          fetchInfoJson(repo.name),
-          fetchCollaborators(repo.name),
-        ]);
+      const projects = await Promise.all(
+        repos.map(async (repo: any) => {
+          const [infoJson, collaborators] = await Promise.all([
+            fetchInfoJson(repo.name),
+            fetchCollaborators(repo.name),
+          ]);
 
-        return {
-          id: String(repo.id),
-          title: infoJson?.title || repo.name,
-          description: infoJson?.description || repo.description || "",
-          images: infoJson?.images || [],
-          status: infoJson?.status || "in-progress",
-          stacks:
-            infoJson?.stacks ||
-            repo.topics.filter((stack: string) => stack !== "portfolio") ||
-            [],
-          links: infoJson?.links || [],
-          collaborators,
-          repository: repo.html_url,
-          homepage: repo.homepage,
-          visibility: repo.user_view_type,
-        };
-      })
-    );
+          return {
+            id: String(repo.id),
+            title: infoJson?.title || repo.name,
+            description: infoJson?.description || repo.description || "",
+            images: infoJson?.images || [],
+            status: infoJson?.status || "in-progress",
+            stacks:
+              infoJson?.stacks ||
+              repo.topics.filter((stack: string) => stack !== "portfolio") ||
+              [],
+            links: infoJson?.links || [],
+            collaborators,
+            repository: repo.html_url,
+            homepage: repo.homepage,
+            visibility: repo.user_view_type,
+          };
+        })
+      );
 
-    return { data: projects, error: false };
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (error) {
-    return { data: [], error: true };
+      return { data: projects, error: false };
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+      return { data: [], error: true };
+    }
+  },
+  ['portfolio-projects'], 
+  {
+    tags: ['portfolio-projects'],
+    revalidate: 3600,
   }
-};
+);

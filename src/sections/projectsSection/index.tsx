@@ -52,7 +52,7 @@ export default function ProjectsSection({
         <div className="flex w-full items-center justify-center flex-col py-20 mt-3 bg-card-background">
           {error ? (
             <>
-              <span className="opacity-70 font-semibold">Não foi possível carregar os projetoss</span>
+              <span className="opacity-70 font-semibold">Não foi possível carregar os projetos</span>
               <span className="opacity-70">Tente novamente.</span>
             </>
           ) : (
