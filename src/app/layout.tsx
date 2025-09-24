@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     "Programação",
   ],
   robots: "index, follow",
+  verification: {
+    google: "google69a8f8419b06cd31.html",
+  },
   openGraph: {
     title:
       "Acelere sua jornada como desenvolvedor | Laboratório Fábrica de Software",
