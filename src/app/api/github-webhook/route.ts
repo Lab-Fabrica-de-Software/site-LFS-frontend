@@ -37,10 +37,25 @@ export async function POST(req: Request) {
     return new Response("Invalid signature", { status: 401 });
   }
 
+  const event = req.headers.get("x-github-event");
+  if (event !== "push" && event !== "repository") {
+    return new Response("Event not handled", { status: 200 });
+  }
+
   const payload = JSON.parse(body);
 
-  if (payload?.repository?.topics?.includes("portfolio")) {
-    revalidateTag('portfolio-projects');
+  const topicsBefore: string[] = payload?.changes?.topics?.from || [];
+  const topicsAfter: string[] = payload?.repository?.topics || [];
+
+  const hadPortfolioBefore = topicsBefore.includes("portfolio");
+  const hasPortfolioNow = topicsAfter.includes("portfolio");
+
+  const isPortfolioProject = hadPortfolioBefore || hasPortfolioNow;
+  const pushedToMain = event === "push" && payload?.ref === "refs/heads/main";
+  const isRepositoryEvent = event === "repository";
+
+  if (isPortfolioProject && (pushedToMain || isRepositoryEvent)) {
+    revalidateTag("portfolio-projects");
   }
 
   return new Response("OK", { status: 200 });

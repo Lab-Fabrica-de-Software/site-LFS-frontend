@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PortfolioProject } from "@/types/portfolioProject";
 import { Member } from "@/types/member";
-import axios from "axios";
 import { unstable_cache } from "next/cache";
 
 const token = process.env.GITHUB_TOKEN;
@@ -12,15 +11,17 @@ const headers = {
 
 const fetchInfoJson = async (repoName: string) => {
   try {
-    const res = await axios.get(
+    const res = await fetch(
       `https://api.github.com/repos/Lab-Fabrica-de-Software/${repoName}/contents/info.json`,
-      { headers }
+      { headers, cache: "no-store" } 
     );
 
-    const content = res.data?.content;
-    if (!content) return null;
+    if (!res.ok) return null;
 
-    const decoded = Buffer.from(content, "base64").toString("utf-8");
+    const data = await res.json();
+    if (!data?.content) return null;
+
+    const decoded = Buffer.from(data.content, "base64").toString("utf-8");
     return JSON.parse(decoded);
   } catch {
     return null;
@@ -29,12 +30,15 @@ const fetchInfoJson = async (repoName: string) => {
 
 const fetchCollaborators = async (repoName: string): Promise<Member[]> => {
   try {
-    const res = await axios.get(
+    const res = await fetch(
       `https://api.github.com/repos/Lab-Fabrica-de-Software/${repoName}/collaborators`,
-      { headers }
+      { headers, cache: "no-store" }
     );
 
-    return res.data.map((colab: any) => ({
+    if (!res.ok) return [];
+
+    const data = await res.json();
+    return data.map((colab: any) => ({
       id: String(colab.id),
       name: colab.login,
       image: colab.avatar_url,
@@ -48,12 +52,16 @@ const fetchCollaborators = async (repoName: string): Promise<Member[]> => {
 export const fetchPortfolioProjects = unstable_cache(
   async (): Promise<{ data: PortfolioProject[]; error: boolean }> => {
     try {
-      const reposRes = await axios.get(
+      const reposRes = await fetch(
         "https://api.github.com/search/repositories?q=org:Lab-Fabrica-de-Software+topic:portfolio",
-        { headers }
+        { headers } 
       );
 
-      const repos = reposRes.data.items;
+      if (!reposRes.ok) {
+        return { data: [], error: true };
+      }
+
+      const { items: repos } = await reposRes.json();
 
       const projects = await Promise.all(
         repos.map(async (repo: any) => {
@@ -70,26 +78,25 @@ export const fetchPortfolioProjects = unstable_cache(
             status: infoJson?.status || "in-progress",
             stacks:
               infoJson?.stacks ||
-              repo.topics.filter((stack: string) => stack !== "portfolio") ||
+              repo.topics?.filter((stack: string) => stack !== "portfolio") ||
               [],
             links: infoJson?.links || [],
             collaborators,
             repository: repo.html_url,
             homepage: repo.homepage,
-            visibility: repo.user_view_type,
+            visibility: repo.visibility,
           };
         })
       );
 
       return { data: projects, error: false };
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {
+    } catch {
       return { data: [], error: true };
     }
   },
-  ['portfolio-projects'], 
+  ["portfolio-projects"],
   {
-    tags: ['portfolio-projects'],
+    tags: ["portfolio-projects"],
     revalidate: 3600,
   }
 );
