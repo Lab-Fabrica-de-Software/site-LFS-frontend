@@ -1,4 +1,4 @@
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import crypto from "crypto";
 
 async function verifySignature(req: Request, secret: string) {
@@ -56,7 +56,10 @@ export async function POST(req: Request) {
 
   if (isPortfolioProject && (pushedToMain || isRepositoryEvent)) {
     revalidateTag("portfolio-projects");
+    revalidatePath("/");
+
+    return new Response("Revalidating portfolio projects", { status: 200 });
   }
 
-  return new Response("OK", { status: 200 });
+  return new Response("Nothing changed", { status: 200 });
 }
