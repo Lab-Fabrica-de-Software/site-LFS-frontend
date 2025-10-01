@@ -13,14 +13,7 @@ const meta: Meta<typeof Footer> = {
 export default meta;
 type Story = StoryObj<typeof Footer>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    className: '',
-  },
-};
-
-export const CustomClass: Story = {
-  args: {
-    className: 'text-sm',
   },
 };

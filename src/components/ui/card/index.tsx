@@ -51,7 +51,7 @@ export function Card({
             )}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-            priority
+            loading="lazy"
           />
 
           <div
@@ -67,7 +67,7 @@ export function Card({
       )}
       <div
         className={twMerge(
-          image ? "pt-2 pb-4 flex-1 w-full" : "p-4",
+          image ? "pt-2 pb-4 flex-1 w-full" : "pt-0",
           !contentPadding ? "px-4" : "px-0"
         )}
       >

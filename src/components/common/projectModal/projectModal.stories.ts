@@ -22,6 +22,10 @@ export const Primary: Story = {
             status: "in-progress",
             stacks: ["Next.js", "TailwindCSS"],
             visibility: "public",
+            images: [
+                "https://picsum.photos/id/237/200/300",
+                "/LogoLFSDark.png",
+            ],
             repository: "https://github.com",
             collaborators: [
                 {

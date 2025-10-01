@@ -2,15 +2,14 @@ export const footerLinks = [
   {
     title: "Empresa",
     links: [
-      { label: "Sobre Nós", href: "/sobre" },
-      { label: "Projetos", href: "/projetos" },
+      { label: "Sobre Nós", href: "#about" },
+      { label: "Projetos", href: "#projects" },
     ],
   },
   {
     title: "Suporte",
     links: [
-      { label: "Contato", href: "/contato" },
-      { label: "Whatsapp", href: "https://chat.whatsapp.com/HVRjmSdMzMjBAQj8DXPb30", external: true },
+      { label: "Contato", href: "mailto:lfs@labfabricadesoftware.com" },
     ],
   },
 ];
