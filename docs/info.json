@@ -1,0 +1,12 @@
+{
+  "title": "Portal LFS",
+  "description": "Site oficial do Laboratório Fábrica de Software, funcionando como portal institucional para apresentar quem somos, nossa missão e os projetos desenvolvidos pelo laboratório. O site oferece uma visão geral do trabalho realizado, tecnologias utilizadas e facilita o acesso às informações sobre nossas iniciativas, colaboradores e recrutamento.",
+  "status": "in-progress",
+  "images": [],
+  "stacks": [
+    "Next.js",
+    "TypeScript",
+    "TailwindCSS"
+  ],
+  "links": []
+}
