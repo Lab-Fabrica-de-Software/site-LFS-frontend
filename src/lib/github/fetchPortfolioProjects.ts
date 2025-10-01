@@ -12,7 +12,7 @@ const headers = {
 const fetchInfoJson = async (repoName: string) => {
   try {
     const res = await fetch(
-      `https://api.github.com/repos/Lab-Fabrica-de-Software/${repoName}/contents/info.json`,
+      `https://api.github.com/repos/Lab-Fabrica-de-Software/${repoName}/contents/docs/info.json`,
       { headers, cache: "no-store" } 
     );
 
