@@ -47,7 +47,7 @@ export default function ProjectCard({ project, onClick, collaboratorsShownLimit 
         <CardTitle className="text-primary">{project.title}</CardTitle>
       </CardHeader>
 
-      <CardContent className="mt-0.5 h-30 flex flex-col justify-between">
+      <CardContent className="mt-0.5 h-40 lg:h-30 flex flex-col justify-between">
         <CardDescription className="opacity-80">
           {project.description
             ? project.description.length > characterLimit
