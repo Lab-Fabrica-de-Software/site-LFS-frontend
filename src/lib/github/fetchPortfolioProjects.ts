@@ -48,10 +48,10 @@ const fetchCollaborators = async (repoName: string): Promise<Member[]> => {
   }
 };
 
-export async function fetchPortfolioProjects(): Promise<{ data: PortfolioProject[]; error: boolean; }> {
+export async function fetchPortfolioProjects(perPage: number | undefined, page: number | undefined): Promise<{ data: PortfolioProject[]; error: boolean; }> {
   try {
     const reposRes = await fetch(
-      "https://api.github.com/search/repositories?q=org:Lab-Fabrica-de-Software+topic:portfolio",
+      `https://api.github.com/search/repositories?q=org:Lab-Fabrica-de-Software+topic:portfolio${perPage ? `&per_page=${perPage}` : ""}${page ? `&page=${page}` : ""}&sort=updated&order=desc`,
       { headers, cache: "no-store" }
     );
 

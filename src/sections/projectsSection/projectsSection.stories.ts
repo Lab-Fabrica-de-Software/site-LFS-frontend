@@ -14,9 +14,14 @@ const meta: Meta<typeof ProjectsSection> = {
 export default meta;
 type Story = StoryObj<typeof ProjectsSection>;
 
-export const Default: Story = {
+export const WithLimit: Story = {
   args: {
-    showViewAllButton: true,
     limit: 3,
+  },
+};
+
+export const WithoutLimit: Story = {
+  args: {
+    limit: undefined,
   },
 };

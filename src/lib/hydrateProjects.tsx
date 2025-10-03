@@ -1,23 +1,30 @@
 // src/lib/hydrateProjects.tsx
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
+import { fetchPortfolioProjects } from "./github/fetchPortfolioProjects";
 
-async function fetchProjectsSSR() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`, {
-    cache: "no-store",
-  });
-  return res.json();
+interface HydrateProjectsProps {
+  children: React.ReactNode;
+  perPage?: number;
+  page?: number;
 }
 
-export async function HydrateProjects({ children }: { children: React.ReactNode }) {
-  const getQueryClient = new QueryClient();
+export async function HydrateProjects({
+  children,
+  perPage,
+  page,
+}: HydrateProjectsProps) {
+  const queryClient = new QueryClient();
 
-  await getQueryClient.prefetchQuery({
-    queryKey: ["portfolio-projects"],
-    queryFn: fetchProjectsSSR,
+  await queryClient.prefetchQuery({
+    queryKey: ["portfolio-projects", { perPage, page }],
+    queryFn: async () => {
+      const result = await fetchPortfolioProjects(perPage, page);
+      return result;
+    },
   });
 
   return (
-    <HydrationBoundary state={dehydrate(getQueryClient)}>
+    <HydrationBoundary state={dehydrate(queryClient)}>
       {children}
     </HydrationBoundary>
   );
