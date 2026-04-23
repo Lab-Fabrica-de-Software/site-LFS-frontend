@@ -30,23 +30,42 @@ export function Button({
   );
 }
 
+
 interface RedirectButtonProps extends ComponentProps<"a"> {
   variant?: "primary" | "secondary";
   href: string;
+  external?: boolean;
 }
+
 
 export function RedirectButton({
   children,
   variant = "primary",
   className,
   href,
+   external = false,
   ...props
 }: RedirectButtonProps) {
   const classes = twMerge(baseClasses, variantClasses[variant], className);
 
+   if (external) {
+    return (
+      <a
+        href={href}
+        className={classes}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...props}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <Link href={href} {...props} className={classes}>
+    <Link href={href} className={classes}>
       {children}
     </Link>
   );
 }
+

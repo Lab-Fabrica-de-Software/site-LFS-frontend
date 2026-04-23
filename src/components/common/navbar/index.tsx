@@ -80,7 +80,7 @@ export function Navbar({ socialIconsVisible = false, ...props }: NavbarProps) {
             ))}
           </ul>
 
-          <RedirectButton href="/" className="text-lg">
+          <RedirectButton href="https://docs.google.com/forms/d/e/1FAIpQLSemrlsHoqzHUqUrV9MdjhXN5KUSnsuVw95j_xWXFGBQ5mlp6w/viewform" className="text-lg">
             Ingresse Já
           </RedirectButton>
 
